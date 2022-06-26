@@ -12,12 +12,14 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     signinform.cpp \
-    signupform.cpp
+    signupform.cpp \
+    userprofile.cpp
 
 HEADERS += \
     mainwindow.h \
     signinform.h \
-    signupform.h
+    signupform.h \
+    userprofile.h
 
 FORMS += \
     mainwindow.ui \

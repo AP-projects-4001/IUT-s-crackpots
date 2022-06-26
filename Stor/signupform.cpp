@@ -1,10 +1,15 @@
 #include "signupform.h"
+#include "userprofile.h"
 #include "mainwindow.h"
 #include "ui_signupform.h"
-#include "QFile"
-#include "QJsonObject"
-#include "QJsonDocument"
 #include "QMessageBox"
+#include "fstream"
+#include <vector>
+
+using namespace std;
+
+int UserProfile::idCounter=0;
+int signUpForm::flag=1;
 
 signUpForm::signUpForm(QWidget *parent) :
     QDialog(parent),
@@ -12,6 +17,12 @@ signUpForm::signUpForm(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->errorLabel->hide();
+    if(flag==1)
+    {
+        update_vector();
+        flag--;
+    }
+
 }
 
 signUpForm::~signUpForm()
@@ -30,22 +41,30 @@ void signUpForm::on_registerBtn_clicked()
     {
         ui->errorLabel->show();
     }
+
+
     else
     {
-        QJsonObject j;
-        j["Address"]=ui->addressTextEdit->toPlainText();
-        j["Email"]=ui->emailLineEdit->text();
-        j["Password"]=ui->passwordLineEdit->text();
-        j["User-name"]=ui->usernamelineEdit->text();
-        j["Last Name"]=ui->lastNameLineEdit->text();
-        j["First Name"]=ui->firstNameLineEdit->text();
-        QJsonDocument d(j);
-        QFile f("D:\\Alireza\\database.json");
-        f.open((QIODevice::Append));
-        f.write(d.toJson());
-        MainWindow *m=new MainWindow();
-        m->show();
-        close();
+
+            UserProfile tmp;
+            tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString());
+            UP.push_back(tmp);
+
+            ofstream outDataBase("D:\\Alireza\\DataBase.txt",ios::app);
+            outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
+            outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
+            outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
+            outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
+            outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
+            outDataBase<<ui->addressTextEdit->toPlainText().toStdString()<<'\n';
+            outDataBase<<tmp.getId()<<'\n';
+            outDataBase<<"#####\n";
+            outDataBase.close();
+
+            MainWindow *m=new MainWindow();
+            m->show();
+            close();
+
     }
 }
 
@@ -72,4 +91,28 @@ void signUpForm::on_showPasscheckBox_stateChanged(int arg1)
 
     }
 }
+
+void signUpForm::update_vector()
+{
+    UserProfile us;
+    string tmp[7];
+    int counter{0};
+    ifstream inDataBase("D:\\Alireza\\DataBase.txt");
+    while(getline(inDataBase,tmp[counter]))
+    {
+
+        if(tmp[counter]=="#####")
+        {
+            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5]);
+            UP.push_back(us);
+            counter=0;
+        }
+
+        counter++;
+
+
+    }
+}
+
+
 
