@@ -50,7 +50,7 @@ void signUpForm::on_registerBtn_clicked()
             tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString());
             UP.push_back(tmp);
 
-            ofstream outDataBase("D:\\Alireza\\DataBase.txt",ios::app);
+            ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/data.txt",ios::app);
             outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
             outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
             outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
@@ -97,7 +97,7 @@ void signUpForm::update_vector()
     UserProfile us;
     string tmp[7];
     int counter{0};
-    ifstream inDataBase("D:\\Alireza\\DataBase.txt");
+    ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/data.txt");
     while(getline(inDataBase,tmp[counter]))
     {
 

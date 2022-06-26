@@ -9,6 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    categories.cpp \
+    goods.cpp \
     main.cpp \
     mainwindow.cpp \
     signinform.cpp \
@@ -16,6 +18,8 @@ SOURCES += \
     userprofile.cpp
 
 HEADERS += \
+    categories.h \
+    goods.h \
     mainwindow.h \
     signinform.h \
     signupform.h \
