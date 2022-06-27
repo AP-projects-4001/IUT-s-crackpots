@@ -24,10 +24,4 @@ void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
 }
 
 
-void SignInForm::on_returnSignInBtn_clicked()
-{
-    MainWindow *m=new MainWindow();
-    m->show();
-    close();
-}
 

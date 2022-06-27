@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
-
+#include "signupform.h"
+#include "signinform.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -16,6 +16,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+signals:
+
+    void changeMode(bool b);
+
 private slots:
     void on_signUpBtn_clicked();
 
@@ -24,6 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
+    signUpForm * signUp;
+    SignInForm * signIn;
 };
 #endif // MAINWINDOW_H

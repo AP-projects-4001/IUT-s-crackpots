@@ -12,6 +12,7 @@ protected:
     string password;
     string email;
     string address;
+    string role;
 
     static int idCounter;
     int id;
@@ -19,7 +20,7 @@ protected:
 public:
     UserProfile();
 
-    void setData(string fn,string ln,string u,string p,string e,string a);
+    void setData(string fn,string ln,string u,string p,string e,string a,string r);
     int getId();
     string getUsername();
 

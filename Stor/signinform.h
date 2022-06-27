@@ -18,7 +18,7 @@ public:
 private slots:
     void on_showPasswordCheckbox_stateChanged(int arg1);
 
-    void on_returnSignInBtn_clicked();
+
 
 private:
     Ui::SignInForm *ui;

@@ -5,7 +5,7 @@ UserProfile::UserProfile()
 
 }
 
-void UserProfile::setData(string fn,string ln,string u,string p,string e,string a)
+void UserProfile::setData(string fn,string ln,string u,string p,string e,string a,string r)
 {
     fName=fn;
     lName=ln;
@@ -13,6 +13,7 @@ void UserProfile::setData(string fn,string ln,string u,string p,string e,string 
     password=p;
     email=e;
     address=a;
+    role=r;
     idCounter++;
     id=idCounter;
 

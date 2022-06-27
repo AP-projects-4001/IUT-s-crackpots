@@ -18,7 +18,7 @@ public:
 private slots:
     void on_registerBtn_clicked();
 
-    void on_returnBtn_clicked();
+    void setMode(bool b);
 
     void on_showPasscheckBox_stateChanged(int arg1);
 
