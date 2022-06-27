@@ -10,7 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     categories.cpp \
-    goods.cpp \
+    good.cpp \
     main.cpp \
     mainwindow.cpp \
     signinform.cpp \
@@ -19,7 +19,7 @@ SOURCES += \
 
 HEADERS += \
     categories.h \
-    goods.h \
+    good.h \
     mainwindow.h \
     signinform.h \
     signupform.h \
