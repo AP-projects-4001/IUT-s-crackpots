@@ -6,6 +6,7 @@
 #include "fstream"
 #include <vector>
 
+
 using namespace std;
 
 int UserProfile::idCounter=0;
@@ -15,8 +16,11 @@ signUpForm::signUpForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::signUpForm)
 {
+
     ui->setupUi(this);
     ui->errorLabel->hide();
+
+    connect(parent,SIGNAL(changeMode(bool)),this,SLOT(setMode(bool)));
     if(flag==1)
     {
         update_vector();
@@ -28,6 +32,19 @@ signUpForm::signUpForm(QWidget *parent) :
 signUpForm::~signUpForm()
 {
     delete ui;
+}
+
+void signUpForm::setMode(bool b)
+{
+    if(b)
+    {
+        ui->titel->setText("Costumer");
+    }
+
+    else
+    {
+        ui->titel->setText("Client");
+    }
 }
 
 void signUpForm::on_registerBtn_clicked()
@@ -45,35 +62,52 @@ void signUpForm::on_registerBtn_clicked()
 
     else
     {
+         ui->errorLabel->hide();
+        try{
+                for(int i=0;i<UP.size();++i)
+                {
+                    if(UP[i].getUsername()==ui->usernamelineEdit->text().toStdString())
+                    {
+                        int x=1;
+                        throw x;
+                    }
+                }
 
-            UserProfile tmp;
-            tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString());
-            UP.push_back(tmp);
+                UserProfile tmp;
+                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString(),ui->titel->text().toStdString());
+                UP.push_back(tmp);
 
-            ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/data.txt",ios::app);
-            outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
-            outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
-            outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
-            outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
-            outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
-            outDataBase<<ui->addressTextEdit->toPlainText().toStdString()<<'\n';
-            outDataBase<<tmp.getId()<<'\n';
-            outDataBase<<"#####\n";
-            outDataBase.close();
+                ofstream outDataBase("D:\\Alireza\\coDataBase.txt",ios::app);
+                outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->addressTextEdit->toPlainText().toStdString()<<'\n';
+                outDataBase<<ui->titel->text().toStdString()<<'\n';
+                outDataBase<<tmp.getId()<<'\n';
+                outDataBase<<"#####\n";
+                outDataBase.close();
 
-            MainWindow *m=new MainWindow();
-            m->show();
-            close();
+                QMessageBox::information(this,"register","congratulation ,your account has been successfully created!");
+
+                ui->usernamelineEdit->clear();
+                ui->passwordLineEdit->clear();
+                ui->confrimPassLineEdit->clear();
+                ui->firstNameLineEdit->clear();
+                ui->lastNameLineEdit->clear();
+                ui->emailLineEdit->clear();
+                ui->addressTextEdit->clear();
+
+                close();
+        }
+        catch(int x)
+        {
+
+            QMessageBox::critical(this,"Error","This username is alredy taken!!");
+        }
 
     }
-}
-
-
-void signUpForm::on_returnBtn_clicked()
-{
-    MainWindow *m=new MainWindow();
-    m->show();
-    close();
 }
 
 
@@ -95,15 +129,15 @@ void signUpForm::on_showPasscheckBox_stateChanged(int arg1)
 void signUpForm::update_vector()
 {
     UserProfile us;
-    string tmp[7];
+    string tmp[8];
     int counter{0};
-    ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/data.txt");
+    ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
     while(getline(inDataBase,tmp[counter]))
     {
 
         if(tmp[counter]=="#####")
         {
-            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5]);
+            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6]);
             UP.push_back(us);
             counter=0;
         }

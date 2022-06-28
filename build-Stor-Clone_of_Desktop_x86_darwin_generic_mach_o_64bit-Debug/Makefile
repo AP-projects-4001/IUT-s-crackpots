@@ -52,21 +52,39 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Stor/categories.cpp \
+SOURCES       = ../Stor/book.cpp \
+		../Stor/car.cpp \
+		../Stor/categories.cpp \
+		../Stor/cloth.cpp \
+		../Stor/furniture.cpp \
 		../Stor/good.cpp \
+		../Stor/health.cpp \
+		../Stor/laptop.cpp \
 		../Stor/main.cpp \
 		../Stor/mainwindow.cpp \
+		../Stor/mobile.cpp \
 		../Stor/signinform.cpp \
 		../Stor/signupform.cpp \
+		../Stor/supermarket.cpp \
+		../Stor/toy.cpp \
 		../Stor/userprofile.cpp moc_mainwindow.cpp \
 		moc_signinform.cpp \
 		moc_signupform.cpp
-OBJECTS       = categories.o \
+OBJECTS       = book.o \
+		car.o \
+		categories.o \
+		cloth.o \
+		furniture.o \
 		good.o \
+		health.o \
+		laptop.o \
 		main.o \
 		mainwindow.o \
+		mobile.o \
 		signinform.o \
 		signupform.o \
+		supermarket.o \
+		toy.o \
 		userprofile.o \
 		moc_mainwindow.o \
 		moc_signinform.o \
@@ -218,17 +236,35 @@ DIST          = ../../../Qt/6.3.1/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.3.1/macos/mkspecs/features/exceptions.prf \
 		../../../Qt/6.3.1/macos/mkspecs/features/yacc.prf \
 		../../../Qt/6.3.1/macos/mkspecs/features/lex.prf \
-		../Stor/Stor.pro ../Stor/categories.h \
+		../Stor/Stor.pro ../Stor/book.h \
+		../Stor/car.h \
+		../Stor/categories.h \
+		../Stor/cloth.h \
+		../Stor/furniture.h \
 		../Stor/good.h \
+		../Stor/health.h \
+		../Stor/laptop.h \
 		../Stor/mainwindow.h \
+		../Stor/mobile.h \
 		../Stor/signinform.h \
 		../Stor/signupform.h \
-		../Stor/userprofile.h ../Stor/categories.cpp \
+		../Stor/supermarket.h \
+		../Stor/toy.h \
+		../Stor/userprofile.h ../Stor/book.cpp \
+		../Stor/car.cpp \
+		../Stor/categories.cpp \
+		../Stor/cloth.cpp \
+		../Stor/furniture.cpp \
 		../Stor/good.cpp \
+		../Stor/health.cpp \
+		../Stor/laptop.cpp \
 		../Stor/main.cpp \
 		../Stor/mainwindow.cpp \
+		../Stor/mobile.cpp \
 		../Stor/signinform.cpp \
 		../Stor/signupform.cpp \
+		../Stor/supermarket.cpp \
+		../Stor/toy.cpp \
 		../Stor/userprofile.cpp
 QMAKE_TARGET  = Stor
 DESTDIR       = 
@@ -586,8 +622,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Stor/categories.h ../Stor/good.h ../Stor/mainwindow.h ../Stor/signinform.h ../Stor/signupform.h ../Stor/userprofile.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Stor/categories.cpp ../Stor/good.cpp ../Stor/main.cpp ../Stor/mainwindow.cpp ../Stor/signinform.cpp ../Stor/signupform.cpp ../Stor/userprofile.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Stor/book.h ../Stor/car.h ../Stor/categories.h ../Stor/cloth.h ../Stor/furniture.h ../Stor/good.h ../Stor/health.h ../Stor/laptop.h ../Stor/mainwindow.h ../Stor/mobile.h ../Stor/signinform.h ../Stor/signupform.h ../Stor/supermarket.h ../Stor/toy.h ../Stor/userprofile.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Stor/book.cpp ../Stor/car.cpp ../Stor/categories.cpp ../Stor/cloth.cpp ../Stor/furniture.cpp ../Stor/good.cpp ../Stor/health.cpp ../Stor/laptop.cpp ../Stor/main.cpp ../Stor/mainwindow.cpp ../Stor/mobile.cpp ../Stor/signinform.cpp ../Stor/signupform.cpp ../Stor/supermarket.cpp ../Stor/toy.cpp ../Stor/userprofile.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Stor/mainwindow.ui ../Stor/signinform.ui ../Stor/signupform.ui $(DISTDIR)/
 
 
@@ -621,6 +657,11 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_signinform.cpp moc_signupfo
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_signinform.cpp moc_signupform.cpp
 moc_mainwindow.cpp: ../Stor/mainwindow.h \
+		../Stor/signupform.h \
+		../Stor/userprofile.h \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Stor/signinform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/6.3.1/macos/libexec/moc
@@ -670,36 +711,71 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-categories.o: ../Stor/categories.cpp ../Stor/categories.h
+book.o: ../Stor/book.cpp ../Stor/book.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o book.o ../Stor/book.cpp
+
+car.o: ../Stor/car.cpp ../Stor/car.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o car.o ../Stor/car.cpp
+
+categories.o: ../Stor/categories.cpp ../Stor/categories.h \
+		../Stor/good.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o categories.o ../Stor/categories.cpp
+
+cloth.o: ../Stor/cloth.cpp ../Stor/cloth.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cloth.o ../Stor/cloth.cpp
+
+furniture.o: ../Stor/furniture.cpp ../Stor/furniture.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o furniture.o ../Stor/furniture.cpp
 
 good.o: ../Stor/good.cpp ../Stor/good.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o good.o ../Stor/good.cpp
 
+health.o: ../Stor/health.cpp ../Stor/health.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o health.o ../Stor/health.cpp
+
+laptop.o: ../Stor/laptop.cpp ../Stor/laptop.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laptop.o ../Stor/laptop.cpp
+
 main.o: ../Stor/main.cpp ../Stor/mainwindow.h \
+		../Stor/signupform.h \
+		../Stor/userprofile.h \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Stor/signinform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../Stor/userprofile.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Stor/main.cpp
 
 mainwindow.o: ../Stor/mainwindow.cpp ../Stor/mainwindow.h \
-		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h \
 		../Stor/signupform.h \
 		../Stor/userprofile.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		../Stor/signinform.h
+		../Stor/signinform.h \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Stor/mainwindow.cpp
+
+mobile.o: ../Stor/mobile.cpp ../Stor/mobile.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mobile.o ../Stor/mobile.cpp
 
 signinform.o: ../Stor/signinform.cpp ../Stor/signinform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_signinform.h \
 		../Stor/mainwindow.h \
+		../Stor/signupform.h \
+		../Stor/userprofile.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signinform.o ../Stor/signinform.cpp
@@ -709,12 +785,20 @@ signupform.o: ../Stor/signupform.cpp ../Stor/signupform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../Stor/mainwindow.h \
+		../Stor/signinform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_signupform.h \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../Qt/6.3.1/macos/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signupform.o ../Stor/signupform.cpp
+
+supermarket.o: ../Stor/supermarket.cpp ../Stor/supermarket.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o supermarket.o ../Stor/supermarket.cpp
+
+toy.o: ../Stor/toy.cpp ../Stor/toy.h \
+		../Stor/good.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toy.o ../Stor/toy.cpp
 
 userprofile.o: ../Stor/userprofile.cpp ../Stor/userprofile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userprofile.o ../Stor/userprofile.cpp

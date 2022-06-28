@@ -8,11 +8,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    signUp=new signUpForm(this);
+    signIn=new SignInForm(this);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 
@@ -21,20 +24,20 @@ MainWindow::~MainWindow()
 void MainWindow::on_signUpBtn_clicked()
 {
 
-    if(ui->costumer->isChecked())
+    if(!ui->Admin->isChecked())
     {
-        signUpForm * signUp=new signUpForm();
+        emit changeMode(ui->costumer->isChecked());
         signUp->show();
-        close();
+
     }
 }
 
 
 void MainWindow::on_signInBtn_clicked()
 {
-    SignInForm * signIn=new SignInForm();
+
     signIn->show();
-    close();
+
 }
 
 

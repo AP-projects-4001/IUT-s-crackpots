@@ -9,20 +9,38 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    book.cpp \
+    car.cpp \
     categories.cpp \
+    cloth.cpp \
+    furniture.cpp \
     good.cpp \
+    health.cpp \
+    laptop.cpp \
     main.cpp \
     mainwindow.cpp \
+    mobile.cpp \
     signinform.cpp \
     signupform.cpp \
+    supermarket.cpp \
+    toy.cpp \
     userprofile.cpp
 
 HEADERS += \
+    book.h \
+    car.h \
     categories.h \
+    cloth.h \
+    furniture.h \
     good.h \
+    health.h \
+    laptop.h \
     mainwindow.h \
+    mobile.h \
     signinform.h \
     signupform.h \
+    supermarket.h \
+    toy.h \
     userprofile.h
 
 FORMS += \
