@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "fstream"
 #include "QMessageBox"
+#include "QDebug"
 
 //int SignInForm::flag=1;
 SignInForm::SignInForm(QWidget *parent) :
