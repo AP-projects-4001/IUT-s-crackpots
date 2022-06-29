@@ -3,6 +3,7 @@
 #include "signupform.h"
 #include "signinform.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,6 +31,7 @@ void MainWindow::on_signUpBtn_clicked()
         signUp->show();
 
     }
+
 }
 
 

@@ -1,6 +1,7 @@
 #ifndef SIGNINFORM_H
 #define SIGNINFORM_H
-
+#include "userprofile.h"
+#include "costumerpage.h"
 #include <QDialog>
 
 namespace Ui {
@@ -16,12 +17,21 @@ public:
     ~SignInForm();
 
 private slots:
+
+    void on_loginBtn_clicked();
+
     void on_showPasswordCheckbox_stateChanged(int arg1);
+
+    void update_vector();
+
 
 
 
 private:
     Ui::SignInForm *ui;
+    CostumerPage * coPage;
+    vector<UserProfile> up;
+    static int flag;
 };
 
 #endif // SIGNINFORM_H

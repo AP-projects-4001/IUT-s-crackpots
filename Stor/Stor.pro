@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     categories.cpp \
+    costumerpage.cpp \
     good.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     categories.h \
+    costumerpage.h \
     good.h \
     mainwindow.h \
     signinform.h \
@@ -26,6 +28,7 @@ HEADERS += \
     userprofile.h
 
 FORMS += \
+    costumerpage.ui \
     mainwindow.ui \
     signinform.ui \
     signupform.ui
@@ -34,3 +37,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    pictures.qrc

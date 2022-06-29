@@ -98,7 +98,7 @@ void signUpForm::on_registerBtn_clicked()
                 ui->lastNameLineEdit->clear();
                 ui->emailLineEdit->clear();
                 ui->addressTextEdit->clear();
-
+                outDataBase.close();
                 close();
         }
         catch(int x)
@@ -141,12 +141,14 @@ void signUpForm::update_vector()
             UP.push_back(us);
             counter=0;
         }
-
-        counter++;
+        else
+            counter++;
 
 
     }
 }
+
+
 
 
 

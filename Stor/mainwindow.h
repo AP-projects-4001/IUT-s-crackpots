@@ -31,5 +31,6 @@ private:
     Ui::MainWindow *ui;
     signUpForm * signUp;
     SignInForm * signIn;
+
 };
 #endif // MAINWINDOW_H

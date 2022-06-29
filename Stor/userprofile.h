@@ -20,9 +20,12 @@ protected:
 public:
     UserProfile();
 
-    void setData(string fn,string ln,string u,string p,string e,string a,string r);
+    void setData(string u,string p,string fn,string ln,string e,string a,string r);
+    void setDataSpecial(string u,string p,string fn,string ln,string e,string a,string r,int i);
     int getId();
     string getUsername();
+    string getPassword();
+    string getRole();
 
 };
 

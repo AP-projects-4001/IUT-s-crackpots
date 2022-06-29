@@ -188,7 +188,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="titel">
      <property name="text">
-      <string>s</string>
+      <string/>
      </property>
      <property name="indent">
       <number>350</number>
