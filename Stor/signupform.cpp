@@ -98,7 +98,11 @@ void signUpForm::on_registerBtn_clicked()
                 ui->lastNameLineEdit->clear();
                 ui->emailLineEdit->clear();
                 ui->addressTextEdit->clear();
+<<<<<<< HEAD
                 outDataBase.close();
+=======
+
+>>>>>>> remotes/origin/arash
                 close();
         }
         catch(int x)
@@ -141,8 +145,13 @@ void signUpForm::update_vector()
             UP.push_back(us);
             counter=0;
         }
+<<<<<<< HEAD
         else
             counter++;
+=======
+
+        counter++;
+>>>>>>> remotes/origin/arash
 
 
     }
@@ -150,5 +159,8 @@ void signUpForm::update_vector()
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> remotes/origin/arash

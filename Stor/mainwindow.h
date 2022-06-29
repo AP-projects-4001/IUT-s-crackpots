@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 #include "signupform.h"
 #include "signinform.h"
+<<<<<<< HEAD
+=======
+#include "signin_admin.h"
+>>>>>>> remotes/origin/arash
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -31,6 +35,10 @@ private:
     Ui::MainWindow *ui;
     signUpForm * signUp;
     SignInForm * signIn;
+<<<<<<< HEAD
 
+=======
+    signIn_admin *signInAdmin;
+>>>>>>> remotes/origin/arash
 };
 #endif // MAINWINDOW_H
