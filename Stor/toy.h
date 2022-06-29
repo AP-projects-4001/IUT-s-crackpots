@@ -11,6 +11,8 @@ class Toy : public good
     std::string about;
 public:
     Toy();
+    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string type,
+    std::string use, std::string about);
 };
 
 #endif // TOY_H

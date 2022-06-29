@@ -21,6 +21,9 @@ class Book : public good
    std::string about;
 public:
     Book();
+    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum seriesTypr,
+                enum jeldType, std::string awards, std::string language, std::string about);
+
 };
 
 #endif // BOOK_H

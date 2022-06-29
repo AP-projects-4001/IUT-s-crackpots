@@ -13,6 +13,8 @@ class Car : public good
 
 public:
     Car();
+    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum streeringWheelType, enum feulType ,
+    enum carClass, int memebers);
 };
 
 #endif // CAR_H

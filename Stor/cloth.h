@@ -12,6 +12,8 @@ class Cloth : public good
     std::string tarh;
 public:
     Cloth();
+    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum collar,
+    enum sleeves , std::string uses, std::string tarh);
 };
 
 #endif // CLOTH_H
