@@ -77,11 +77,9 @@
          </widget>
         </item>
         <item>
-<<<<<<< HEAD
+
          <widget class="QLineEdit" name="usernameLineEdit"/>
-=======
-         <widget class="QLineEdit" name="lineEdit_5"/>
->>>>>>> remotes/origin/arash
+
         </item>
        </layout>
       </item>
@@ -120,11 +118,9 @@
          </widget>
         </item>
         <item>
-<<<<<<< HEAD
+
          <widget class="QPushButton" name="loginBtn">
-=======
-         <widget class="QPushButton" name="pushButton">
->>>>>>> remotes/origin/arash
+
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>

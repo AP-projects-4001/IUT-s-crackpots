@@ -1,40 +1,32 @@
 #include "signinform.h"
 #include "ui_signinform.h"
 #include "mainwindow.h"
-<<<<<<< HEAD
 #include "fstream"
 #include "QMessageBox"
 #include "QDebug"
 
 //int SignInForm::flag=1;
-=======
 
->>>>>>> remotes/origin/arash
 SignInForm::SignInForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignInForm)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
+
     coPage=new CostumerPage(this);
 //    if(flag==1)
 //    {
 //        update_vector();
 //        qDebug()<<"this constructor and we r in flag line!";
 //        flag--;
-//    }
+    }
 
-=======
->>>>>>> remotes/origin/arash
 
-}
 
 SignInForm::~SignInForm()
 {
     delete ui;
 }
-
-<<<<<<< HEAD
 
 
 void SignInForm::on_loginBtn_clicked()
@@ -64,8 +56,7 @@ void SignInForm::on_loginBtn_clicked()
         QMessageBox::warning(this,"warning","There is no DataBase!");
 }
 
-=======
->>>>>>> remotes/origin/arash
+
 void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
 {
     if(ui->showPasswordCheckbox->isChecked())
@@ -74,7 +65,7 @@ void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
         ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
 }
 
-<<<<<<< HEAD
+
 void SignInForm::update_vector()
 {
     qDebug()<<"1";
@@ -116,7 +107,6 @@ void SignInForm::update_vector()
 }
 
 
-=======
->>>>>>> remotes/origin/arash
+
 
 

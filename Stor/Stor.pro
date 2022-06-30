@@ -16,7 +16,9 @@ SOURCES += \
     mainwindow.cpp \
     signinform.cpp \
     signupform.cpp \
-    userprofile.cpp
+    userprofile.cpp \
+    admin_page.cpp \
+    signin_admin.cpp
 
 HEADERS += \
     categories.h \
@@ -25,13 +27,17 @@ HEADERS += \
     mainwindow.h \
     signinform.h \
     signupform.h \
-    userprofile.h
+    userprofile.h \
+    admin_page.h \
+    signin_admin.h
 
 FORMS += \
     costumerpage.ui \
     mainwindow.ui \
     signinform.ui \
-    signupform.ui
+    signupform.ui \
+    admin_page.ui \
+    signin_admin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
