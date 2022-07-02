@@ -1,10 +1,6 @@
 #ifndef GOOD_H
 #define GOOD_H
-
-
 #include <string>
-
-
 
 class good
 {
@@ -14,6 +10,7 @@ protected:
     int price;
     int remainingNum;
     int boughtNum;
+    int user_id;
 
 public:
     // Constructor

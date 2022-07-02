@@ -75,6 +75,7 @@ void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
 }
 
 
+<<<<<<< HEAD
 void SignInForm::update_vector()
 {
     qDebug()<<"1";
@@ -114,6 +115,8 @@ void SignInForm::update_vector()
         outDataBase.close();
     }
 }
+=======
+>>>>>>> parsa
 
 
 

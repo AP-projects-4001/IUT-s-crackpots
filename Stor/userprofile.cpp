@@ -5,9 +5,13 @@ UserProfile::UserProfile()
 
 }
 
+<<<<<<< HEAD
 
 void UserProfile::setData(string u,string p,string fn,string ln,string e,string a,string r,string m)
 
+=======
+void UserProfile::setData(string fn,string ln,string u,string p,string e,string a,string r)
+>>>>>>> parsa
 {
     fName=fn;
     lName=ln;
@@ -16,7 +20,11 @@ void UserProfile::setData(string u,string p,string fn,string ln,string e,string 
     email=e;
     address=a;
     role=r;
+<<<<<<< HEAD
     money=m;
+=======
+    idCounter++;
+>>>>>>> parsa
     id=idCounter;
     idCounter++;
 

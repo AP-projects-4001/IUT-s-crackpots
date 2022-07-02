@@ -74,7 +74,11 @@ void signUpForm::on_registerBtn_clicked()
                 }
 
                 UserProfile tmp;
+<<<<<<< HEAD
                 tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString(),"0");
+=======
+                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString(),ui->titel->text().toStdString());
+>>>>>>> parsa
                 UP.push_back(tmp);
 
                 ofstream outDataBase("D:\\Alireza\\coDataBase.txt",ios::app);
@@ -83,9 +87,14 @@ void signUpForm::on_registerBtn_clicked()
                 outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
+<<<<<<< HEAD
                 outDataBase<<ui->addressLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->titel->text().toStdString()<<'\n';
                 outDataBase<<tmp.getMoney()<<'\n';
+=======
+                outDataBase<<ui->addressTextEdit->toPlainText().toStdString()<<'\n';
+                outDataBase<<ui->titel->text().toStdString()<<'\n';
+>>>>>>> parsa
                 outDataBase<<tmp.getId()<<'\n';
                 outDataBase<<"#####\n";
                 outDataBase.close();
@@ -98,9 +107,13 @@ void signUpForm::on_registerBtn_clicked()
                 ui->firstNameLineEdit->clear();
                 ui->lastNameLineEdit->clear();
                 ui->emailLineEdit->clear();
+<<<<<<< HEAD
                 ui->addressLineEdit->clear();
 
                 outDataBase.close();
+=======
+                ui->addressTextEdit->clear();
+>>>>>>> parsa
 
                 close();
         }
@@ -132,7 +145,11 @@ void signUpForm::on_showPasscheckBox_stateChanged(int arg1)
 void signUpForm::update_vector()
 {
     UserProfile us;
+<<<<<<< HEAD
     string tmp[9];
+=======
+    string tmp[8];
+>>>>>>> parsa
     int counter{0};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
     while(getline(inDataBase,tmp[counter]))
@@ -140,7 +157,11 @@ void signUpForm::update_vector()
 
         if(tmp[counter]=="#####")
         {
+<<<<<<< HEAD
             us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
+=======
+            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6]);
+>>>>>>> parsa
             UP.push_back(us);
             counter=0;
         }

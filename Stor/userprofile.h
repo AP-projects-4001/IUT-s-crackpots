@@ -13,7 +13,10 @@ protected:
     string email;
     string address;
     string role;
+<<<<<<< HEAD
     string money;
+=======
+>>>>>>> parsa
 
     static int idCounter;
     int id;
@@ -21,8 +24,12 @@ protected:
 public:
     UserProfile();
 
+<<<<<<< HEAD
     void setData(string u,string p,string fn,string ln,string e,string a,string r,string money);
     void setDataSpecial(string u,string p,string fn,string ln,string e,string a,string r,string m, int i);
+=======
+    void setData(string fn,string ln,string u,string p,string e,string a,string r);
+>>>>>>> parsa
     int getId();
     string getUsername();
     string getPassword();

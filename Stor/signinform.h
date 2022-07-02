@@ -28,10 +28,13 @@ private slots:
 
     void on_showPasswordCheckbox_stateChanged(int arg1);
 
+<<<<<<< HEAD
     void update_vector();
 
 
 
+=======
+>>>>>>> parsa
 
 
 private:
