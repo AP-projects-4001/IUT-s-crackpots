@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     categories.cpp \
+    clientpage.cpp \
     costumerpage.cpp \
     good.cpp \
     main.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 
 HEADERS += \
     categories.h \
+    clientpage.h \
     costumerpage.h \
     good.h \
     mainwindow.h \
@@ -34,6 +36,7 @@ HEADERS += \
     signin_admin.h
 
 FORMS += \
+    clientpage.ui \
     costumerpage.ui \
     mainwindow.ui \
     profilesetting.ui \

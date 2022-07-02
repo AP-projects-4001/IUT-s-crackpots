@@ -14,6 +14,7 @@ SignInForm::SignInForm(QWidget *parent) :
     ui->setupUi(this);
 
     coPage=new costumerPage(this);
+    clPage=new clientPage(this);
 //    if(flag==1)
 //    {
 //        update_vector();
@@ -46,6 +47,13 @@ void SignInForm::on_loginBtn_clicked()
                     coPage->show();
                     emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
 
+                }
+
+                else if(up[i].getRole()=="Client")
+                {
+                    empty=false;
+                    clPage->show();
+                    //emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
                 }
 
 

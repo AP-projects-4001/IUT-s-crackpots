@@ -2,6 +2,7 @@
 #define SIGNINFORM_H
 #include "userprofile.h"
 #include "costumerpage.h"
+#include "clientpage.h"
 #include <QDialog>
 
 namespace Ui {
@@ -36,6 +37,7 @@ private slots:
 private:
     Ui::SignInForm *ui;
     costumerPage * coPage;
+    clientPage * clPage;
     vector<UserProfile> up;
     static int flag;
 };
