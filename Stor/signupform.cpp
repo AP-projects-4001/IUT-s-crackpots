@@ -50,7 +50,7 @@ void signUpForm::setMode(bool b)
 void signUpForm::on_registerBtn_clicked()
 {
 
-    if(ui->addressTextEdit->toPlainText()=="" || ui->emailLineEdit->text()=="" || ui->passwordLineEdit->text()=="" || ui->usernamelineEdit->text()=="" || ui->lastNameLineEdit->text()=="" || ui->firstNameLineEdit->text()=="", ui->confrimPassLineEdit->text()=="")
+    if(ui->addressLineEdit->text()=="" || ui->emailLineEdit->text()=="" || ui->passwordLineEdit->text()=="" || ui->usernamelineEdit->text()=="" || ui->lastNameLineEdit->text()=="" || ui->firstNameLineEdit->text()=="", ui->confrimPassLineEdit->text()=="")
     {
         QMessageBox::critical(this,"Information","Fill in the blank");
     }
@@ -74,7 +74,7 @@ void signUpForm::on_registerBtn_clicked()
                 }
 
                 UserProfile tmp;
-                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressTextEdit->toPlainText().toStdString(),ui->titel->text().toStdString());
+                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString());
                 UP.push_back(tmp);
 
                 ofstream outDataBase("D:\\Alireza\\coDataBase.txt",ios::app);
@@ -83,7 +83,7 @@ void signUpForm::on_registerBtn_clicked()
                 outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
-                outDataBase<<ui->addressTextEdit->toPlainText().toStdString()<<'\n';
+                outDataBase<<ui->addressLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->titel->text().toStdString()<<'\n';
                 outDataBase<<tmp.getId()<<'\n';
                 outDataBase<<"#####\n";
@@ -97,7 +97,7 @@ void signUpForm::on_registerBtn_clicked()
                 ui->firstNameLineEdit->clear();
                 ui->lastNameLineEdit->clear();
                 ui->emailLineEdit->clear();
-                ui->addressTextEdit->clear();
+                ui->addressLineEdit->clear();
 
                 outDataBase.close();
 

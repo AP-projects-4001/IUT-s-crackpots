@@ -1,22 +1,36 @@
 #ifndef COSTUMERPAGE_H
 #define COSTUMERPAGE_H
-
-#include <QDialog>
+#include "profilesetting.h"
+#include "userprofile.h"
+#include <QMainWindow>
 
 namespace Ui {
-class CostumerPage;
+class costumerPage;
 }
 
-class CostumerPage : public QDialog
+class costumerPage : public QMainWindow , public UserProfile
 {
     Q_OBJECT
 
+
+signals:
+
+    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString e,QString a,int id);
+
+private slots:
+
+    void setInformation(QString us);
+
+
+    void on_profileBtn_clicked();
+
 public:
-    explicit CostumerPage(QWidget *parent = nullptr);
-    ~CostumerPage();
+    explicit costumerPage(QWidget *parent = nullptr);
+    ~costumerPage();
 
 private:
-    Ui::CostumerPage *ui;
+    Ui::costumerPage *ui;
+    profileSetting * profile;
 };
 
 #endif // COSTUMERPAGE_H

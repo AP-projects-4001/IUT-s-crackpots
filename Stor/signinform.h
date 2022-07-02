@@ -16,6 +16,11 @@ public:
     explicit SignInForm(QWidget *parent = nullptr);
     ~SignInForm();
 
+
+signals:
+
+    void sendUserInformation(QString us);
+
 private slots:
 
     void on_loginBtn_clicked();
@@ -27,9 +32,10 @@ private slots:
 
 
 
+
 private:
     Ui::SignInForm *ui;
-    CostumerPage * coPage;
+    costumerPage * coPage;
     vector<UserProfile> up;
     static int flag;
 };

@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     signUp= new signUpForm(this);
-    //signIn= new SignInForm(this);
+    signIn= new SignInForm(this);
     signInAdmin = new signIn_admin(this);
 
 }

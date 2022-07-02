@@ -50,7 +50,29 @@ string UserProfile::getPassword()
     return password;
 }
 
+string UserProfile::getFname()
+{
+    return fName;
+}
+
+string UserProfile::getLname()
+{
+    return lName;
+}
+
+string UserProfile::getEmali()
+{
+    return email;
+}
+
+string UserProfile::getAdrress()
+{
+    return address;
+}
+
 string UserProfile::getRole()
 {
     return role;
 }
+
+

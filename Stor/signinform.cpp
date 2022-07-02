@@ -13,7 +13,7 @@ SignInForm::SignInForm(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    coPage=new CostumerPage(this);
+    coPage=new costumerPage(this);
 //    if(flag==1)
 //    {
 //        update_vector();
@@ -44,7 +44,8 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     coPage->show();
-                    close();
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()));
+
                 }
 
 

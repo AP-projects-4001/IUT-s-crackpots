@@ -25,6 +25,10 @@ public:
     int getId();
     string getUsername();
     string getPassword();
+    string getFname();
+    string getLname();
+    string getEmali();
+    string getAdrress();
     string getRole();
 
 };

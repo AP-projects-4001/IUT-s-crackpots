@@ -14,6 +14,7 @@ SOURCES += \
     good.cpp \
     main.cpp \
     mainwindow.cpp \
+    profilesetting.cpp \
     signinform.cpp \
     signupform.cpp \
     userprofile.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     costumerpage.h \
     good.h \
     mainwindow.h \
+    profilesetting.h \
     signinform.h \
     signupform.h \
     userprofile.h \
@@ -34,6 +36,7 @@ HEADERS += \
 FORMS += \
     costumerpage.ui \
     mainwindow.ui \
+    profilesetting.ui \
     signinform.ui \
     signupform.ui \
     admin_page.ui \
