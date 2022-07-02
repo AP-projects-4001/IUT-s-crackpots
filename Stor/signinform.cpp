@@ -44,7 +44,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     coPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()));
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
 
                 }
 
@@ -71,7 +71,7 @@ void SignInForm::update_vector()
 {
     qDebug()<<"1";
     UserProfile us;
-    string tmp[8];
+    string tmp[9];
     int counter{0};
     int idCounter{1};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
@@ -85,7 +85,7 @@ void SignInForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;

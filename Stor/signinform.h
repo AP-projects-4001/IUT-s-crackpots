@@ -19,7 +19,7 @@ public:
 
 signals:
 
-    void sendUserInformation(QString us);
+    void sendUserInformation(QString us,QString m,int id);
 
 private slots:
 

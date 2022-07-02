@@ -13,6 +13,7 @@ protected:
     string email;
     string address;
     string role;
+    string money;
 
     static int idCounter;
     int id;
@@ -20,8 +21,8 @@ protected:
 public:
     UserProfile();
 
-    void setData(string u,string p,string fn,string ln,string e,string a,string r);
-    void setDataSpecial(string u,string p,string fn,string ln,string e,string a,string r,int i);
+    void setData(string u,string p,string fn,string ln,string e,string a,string r,string money);
+    void setDataSpecial(string u,string p,string fn,string ln,string e,string a,string r,string m, int i);
     int getId();
     string getUsername();
     string getPassword();
@@ -30,6 +31,7 @@ public:
     string getEmali();
     string getAdrress();
     string getRole();
+    string getMoney();
 
 };
 

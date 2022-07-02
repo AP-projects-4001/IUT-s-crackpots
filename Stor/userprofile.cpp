@@ -1,12 +1,12 @@
 #include "userprofile.h"
-
+#include "string"
 UserProfile::UserProfile()
 {
 
 }
 
 
-void UserProfile::setData(string u,string p,string fn,string ln,string e,string a,string r)
+void UserProfile::setData(string u,string p,string fn,string ln,string e,string a,string r,string m)
 
 {
     fName=fn;
@@ -16,12 +16,13 @@ void UserProfile::setData(string u,string p,string fn,string ln,string e,string 
     email=e;
     address=a;
     role=r;
+    money=m;
     id=idCounter;
     idCounter++;
 
 }
 
-void UserProfile::setDataSpecial(string u, string p, string fn, string ln, string e, string a, string r,int i)
+void UserProfile::setDataSpecial(string u, string p, string fn, string ln, string e, string a, string r,string m,int i)
 {
     fName=fn;
     lName=ln;
@@ -31,6 +32,8 @@ void UserProfile::setDataSpecial(string u, string p, string fn, string ln, strin
     address=a;
     role=r;
     id=i;
+    money=m;
+
 }
 
 
@@ -73,6 +76,11 @@ string UserProfile::getAdrress()
 string UserProfile::getRole()
 {
     return role;
+}
+
+string UserProfile::getMoney()
+{
+    return money;
 }
 
 

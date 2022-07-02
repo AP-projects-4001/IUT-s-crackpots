@@ -11,7 +11,7 @@ costumerPage::costumerPage(QWidget *parent) :
 {
     ui->setupUi(this);
     profile=new profileSetting(this);
-    connect(parent ,SIGNAL(sendUserInformation(QString)),this,SLOT(setInformation(QString)));
+    connect(parent ,SIGNAL(sendUserInformation(QString,QString ,int)),this,SLOT(setInformation(QString,QString,int)));
 }
 
 costumerPage::~costumerPage()
@@ -20,10 +20,13 @@ costumerPage::~costumerPage()
 }
 
 
-void costumerPage::setInformation(QString us)
+void costumerPage::setInformation(QString us,QString m ,int i)
 {
 
     username=us.toStdString();
+    ui->usernameLabel->setText(QString::fromStdString(username));
+    ui->idLabel->setText(QString::number(i));
+    ui->moneyLabel->setText(m);
 
 }
 
@@ -34,6 +37,7 @@ void costumerPage::on_profileBtn_clicked()
 {
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
     string tmp;
+
     while(getline(inDataBase,tmp))
     {
         if(tmp==username)
@@ -52,8 +56,9 @@ void costumerPage::on_profileBtn_clicked()
             getline(inDataBase,tmp);
             getline(inDataBase,tmp);
             this->id=QString::fromStdString(tmp).toInt();
-            ui->usernameLabel->setText(QString::fromStdString(username));
-            ui->idLabel->setText(QString::fromStdString(tmp));
+            getline(inDataBase,tmp);
+
+
         }
     }
     inDataBase.close();
@@ -62,5 +67,40 @@ void costumerPage::on_profileBtn_clicked()
 
 
 
+}
+
+
+void costumerPage::on_addMoney_clicked()
+{
+    ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
+    string tmp;
+    string info="";
+    ui->moneyLabel->setText(QString::number(ui->spinBoxMoney->value()+ui->moneyLabel->text().toInt()));
+
+    while(getline(inDataBase,tmp))
+    {
+        if(tmp==username)
+        {
+            info+=username+'\n';
+            for(int i=0;i<6;++i)
+            {
+                getline(inDataBase,tmp);
+                info+=tmp+'\n';
+
+            }
+            getline(inDataBase,tmp);
+            info+=ui->moneyLabel->text().toStdString()+'\n';
+            getline(inDataBase,tmp);
+            info+=tmp+'\n';
+        }
+        else
+        {
+            info+=tmp+'\n';
+        }
+    }
+    inDataBase.close();
+    ofstream outDataBase("D:\\Alireza\\coDataBase.txt");
+    outDataBase<<info;
+    outDataBase.close();
 }
 

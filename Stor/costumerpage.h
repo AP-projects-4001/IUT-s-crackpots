@@ -19,10 +19,12 @@ signals:
 
 private slots:
 
-    void setInformation(QString us);
+    void setInformation(QString us,QString m,int i);
 
 
     void on_profileBtn_clicked();
+
+    void on_addMoney_clicked();
 
 public:
     explicit costumerPage(QWidget *parent = nullptr);

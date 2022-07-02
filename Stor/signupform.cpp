@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int UserProfile::idCounter=0;
+int UserProfile::idCounter=1;
 int signUpForm::flag=1;
 
 signUpForm::signUpForm(QWidget *parent) :
@@ -74,7 +74,7 @@ void signUpForm::on_registerBtn_clicked()
                 }
 
                 UserProfile tmp;
-                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString());
+                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString(),"0");
                 UP.push_back(tmp);
 
                 ofstream outDataBase("D:\\Alireza\\coDataBase.txt",ios::app);
@@ -85,6 +85,7 @@ void signUpForm::on_registerBtn_clicked()
                 outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->addressLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->titel->text().toStdString()<<'\n';
+                outDataBase<<tmp.getMoney()<<'\n';
                 outDataBase<<tmp.getId()<<'\n';
                 outDataBase<<"#####\n";
                 outDataBase.close();
@@ -131,7 +132,7 @@ void signUpForm::on_showPasscheckBox_stateChanged(int arg1)
 void signUpForm::update_vector()
 {
     UserProfile us;
-    string tmp[8];
+    string tmp[9];
     int counter{0};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
     while(getline(inDataBase,tmp[counter]))
@@ -139,7 +140,7 @@ void signUpForm::update_vector()
 
         if(tmp[counter]=="#####")
         {
-            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6]);
+            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
             UP.push_back(us);
             counter=0;
         }
