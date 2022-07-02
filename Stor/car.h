@@ -6,15 +6,15 @@
 
 class Car : public good
 {
-    enum streeringWheelType { electrical, hydrolic } ;
-    enum feulType { petrol, gas, gasoline, gasAndPetrol  };
-    enum carClass { sport, superSport };
-    int memebers;
+    std::string steeringWheelType;
+    std::string feulType;
+    std::string carClass;
+    int members;
 
 public:
     Car();
-    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum streeringWheelType, enum feulType ,
-    enum carClass, int memebers);
+    void setData(int id, std::string name, int price, int remainingNum, int boughtNum, std::string steeringWheelType, std::string feulType ,
+    std::string carClass, int mmebers);
 };
 
 #endif // CAR_H

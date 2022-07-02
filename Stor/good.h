@@ -10,6 +10,7 @@ protected:
     int price;
     int remainingNum;
     int boughtNum;
+    int user_id;
 
 public:
     // Constructor

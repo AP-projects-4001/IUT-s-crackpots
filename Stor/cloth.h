@@ -6,14 +6,14 @@
 
 class Cloth : public good
 {
-    enum collar { circle, v };
-    enum sleeves { shortS, longS };
+    std::string collar;
+    std::string sleeves;
     std::string uses;
     std::string tarh;
 public:
     Cloth();
-    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum collar,
-    enum sleeves , std::string uses, std::string tarh);
+    void setData(int id, std::string name, int price, int remainingNum, int boughtNum, std::string collar,
+    std::string sleeves , std::string uses, std::string tarh);
 };
 
 #endif // CLOTH_H

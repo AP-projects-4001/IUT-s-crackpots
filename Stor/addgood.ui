@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Monile</string>
+    <string>Mobile</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_2">

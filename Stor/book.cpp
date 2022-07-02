@@ -9,9 +9,19 @@ Book::Book()
 
 }
 
-void Book::insert(int id, std::string name, int price, int remainingNum, int boughtNum, enum seriesTypr,
-                  enum jeldType, std::string awards, std::string language, std::string about) {
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/books.txt",ios::app);
-    outDataBase.close();
+void Book::setData(int id, std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
+                  std::string jeldType, std::string awards, std::string language, std::string about) {
+    this->id = id;
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->seriesType = seriesType;
+    this->jeldType = jeldType;
+    this->awards = awards;
+    this->language = language;
+    this->about = about;
+
 
 }
+

@@ -15,8 +15,11 @@ public:
     explicit addBook(QWidget *parent = nullptr);
     ~addBook();
 
+
+
 private:
     Ui::addBook *ui;
+
 };
 
 #endif // ADDBOOK_H
