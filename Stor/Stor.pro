@@ -33,16 +33,14 @@ SOURCES += \
     mainwindow.cpp \
     profilesetting.cpp \
     signinform.cpp \
-    signupform.cpp \
     userprofile.cpp \
     admin_page.cpp \
     signin_admin.cpp \
-    mobile.cpp \
-    signinform.cpp \
+    mobile.cpp \  
     signupform.cpp \
     supermarket.cpp \
-    toy.cpp \
-    userprofile.cpp
+    toy.cpp
+
 
 HEADERS += \
     addbook.h \
@@ -71,19 +69,15 @@ HEADERS += \
     signupform.h \
     userprofile.h \
     admin_page.h \
+    mobile.h \
+    signinform.h \
+    supermarket.h \
+    toy.h \
     signin_admin.h
 
 FORMS += \
     clientpage.ui \
     costumerpage.ui \
-    mobile.h \
-    signinform.h \
-    signupform.h \
-    supermarket.h \
-    toy.h \
-    userprofile.h
-
-FORMS += \
     addbook.ui \
     addcar.ui \
     addcloth.ui \

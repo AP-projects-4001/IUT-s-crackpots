@@ -2,10 +2,7 @@
 #define MAINWINDOW_H
 #include "signupform.h"
 #include "signinform.h"
-<<<<<<< HEAD
 #include "signin_admin.h"
-=======
->>>>>>> parsa
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -35,10 +32,7 @@ private:
     Ui::MainWindow *ui;
     signUpForm * signUp;
     SignInForm * signIn;
-<<<<<<< HEAD
     signIn_admin *signInAdmin;
 
-=======
->>>>>>> parsa
 };
 #endif // MAINWINDOW_H
