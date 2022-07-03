@@ -36,7 +36,7 @@ SOURCES += \
     userprofile.cpp \
     admin_page.cpp \
     signin_admin.cpp \
-    mobile.cpp \  
+    mobile.cpp \
     signupform.cpp \
     supermarket.cpp \
     toy.cpp
@@ -65,6 +65,7 @@ HEADERS += \
     laptop.h \
     mainwindow.h \
     profilesetting.h \
+    shopview.h \
     signinform.h \
     signupform.h \
     userprofile.h \
@@ -90,6 +91,7 @@ FORMS += \
     addtoy.ui \
     mainwindow.ui \
     profilesetting.ui \
+    shopview.ui \
     signinform.ui \
     signupform.ui \
     admin_page.ui \

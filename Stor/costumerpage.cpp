@@ -55,6 +55,7 @@ void costumerPage::on_profileBtn_clicked()
             address=tmp;
             getline(inDataBase,tmp);
             getline(inDataBase,tmp);
+            getline(inDataBase,tmp);
             this->id=QString::fromStdString(tmp).toInt();
             getline(inDataBase,tmp);
 
