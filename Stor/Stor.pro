@@ -25,6 +25,7 @@ SOURCES += \
     clientpage.cpp \
     costumerpage.cpp \
     cloth.cpp \
+    forgetform.cpp \
     furniture.cpp \
     good.cpp \
     health.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
     mobile.cpp \
     signupform.cpp \
     supermarket.cpp \
+    shopview.cpp \
     toy.cpp
 
 
@@ -59,6 +61,7 @@ HEADERS += \
     clientpage.h \
     costumerpage.h \
     cloth.h \
+    forgetform.h \
     furniture.h \
     good.h \
     health.h \
@@ -89,6 +92,7 @@ FORMS += \
     addmobile.ui \
     addsupermarket.ui \
     addtoy.ui \
+    forgetform.ui \
     mainwindow.ui \
     profilesetting.ui \
     shopview.ui \

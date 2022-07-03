@@ -5,6 +5,7 @@
 #include "QMessageBox"
 #include "QDebug"
 
+
 //int SignInForm::flag=1;
 
 SignInForm::SignInForm(QWidget *parent) :
@@ -15,6 +16,7 @@ SignInForm::SignInForm(QWidget *parent) :
 
     coPage=new costumerPage(this);
     clPage=new clientPage(this);
+    forget_form=new forgetForm(this);
 //    if(flag==1)
 //    {
 //        update_vector();
@@ -78,16 +80,16 @@ void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
 
 void SignInForm::update_vector()
 {
-    qDebug()<<"1";
+
     UserProfile us;
     string tmp[9];
     int counter{0};
     int idCounter{1};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
-    qDebug()<<"2";
+
     if(inDataBase)
     {
-        qDebug()<<"3";
+
         while(getline(inDataBase,tmp[counter]))
         {
 
@@ -120,4 +122,11 @@ void SignInForm::update_vector()
 
 
 
+
+
+
+void SignInForm::on_forrgotBtn_clicked()
+{
+    forget_form->show();
+}
 

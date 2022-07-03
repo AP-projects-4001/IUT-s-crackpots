@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::shopView *ui;
+
 };
 
 #endif // SHOPVIEW_H
