@@ -19,6 +19,8 @@ private slots:
 
     void on_saveBtn_clicked();
 
+    void on_showPasswordLabel_stateChanged(int arg1);
+
 public:
     explicit profileSetting(QWidget *parent = nullptr);
     ~profileSetting();
