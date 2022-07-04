@@ -8,7 +8,7 @@ namespace Ui {
 class signUpForm;
 }
 
-class signUpForm : public QDialog
+class signUpForm : public QDialog , public UserProfile
 {
     Q_OBJECT
 

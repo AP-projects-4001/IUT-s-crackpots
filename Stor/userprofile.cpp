@@ -7,7 +7,7 @@ UserProfile::UserProfile()
 
 
 
-void UserProfile::setData(string u,string p,string fn,string ln,string e,string a,string r,string m)
+void UserProfile::setData(string u,string p,string fn,string ln,string c,string e,string a,string r,string m)
 
 
 {
@@ -19,12 +19,13 @@ void UserProfile::setData(string u,string p,string fn,string ln,string e,string 
     address=a;
     role=r;
     money=m;
+    city=c;
     id=idCounter;
     idCounter++;
 
 }
 
-void UserProfile::setDataSpecial(string u, string p, string fn, string ln, string e, string a, string r,string m,int i)
+void UserProfile::setDataSpecial(string u, string p, string fn, string ln,string c, string e, string a, string r,string m,int i)
 {
     fName=fn;
     lName=ln;
@@ -33,6 +34,7 @@ void UserProfile::setDataSpecial(string u, string p, string fn, string ln, strin
     email=e;
     address=a;
     role=r;
+    city=c;
     id=i;
     money=m;
 
@@ -83,6 +85,11 @@ string UserProfile::getRole()
 string UserProfile::getMoney()
 {
     return money;
+}
+
+string UserProfile::getCity()
+{
+    return city;
 }
 
 

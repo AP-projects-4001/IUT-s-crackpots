@@ -35,7 +35,7 @@ void forgetForm::on_findBtn_clicked()
 void forgetForm::update_vector()
 {
     UserProfile us;
-    string tmp[9];
+    string tmp[10];
     int counter{0};
     int idCounter{1};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
@@ -49,7 +49,7 @@ void forgetForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
