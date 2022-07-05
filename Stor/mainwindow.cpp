@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+
     signUp= new signUpForm(this);
     signIn= new SignInForm(this);
     signInAdmin = new signIn_admin(this);
@@ -38,6 +39,7 @@ void MainWindow::on_signUpBtn_clicked()
 void MainWindow::on_signInBtn_clicked()
 {
 
+
         if(!ui->Admin->isChecked())
         {
             signIn->show();
@@ -45,6 +47,7 @@ void MainWindow::on_signInBtn_clicked()
         else{
             signInAdmin->show();
         }
+
 }
 
 

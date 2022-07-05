@@ -5,6 +5,7 @@
 #include "QMessageBox"
 #include "QDebug"
 
+
 //int SignInForm::flag=1;
 
 SignInForm::SignInForm(QWidget *parent) :
@@ -15,6 +16,7 @@ SignInForm::SignInForm(QWidget *parent) :
 
     coPage=new costumerPage(this);
     clPage=new clientPage(this);
+    forget_form=new forgetForm(this);
 //    if(flag==1)
 //    {
 //        update_vector();
@@ -53,7 +55,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     clPage->show();
-                    //emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
                 }
 
 
@@ -75,25 +77,26 @@ void SignInForm::on_showPasswordCheckbox_stateChanged(int arg1)
 }
 
 
+
 void SignInForm::update_vector()
 {
-    qDebug()<<"1";
+
     UserProfile us;
-    string tmp[9];
+    string tmp[10];
     int counter{0};
     int idCounter{1};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
-    qDebug()<<"2";
+
     if(inDataBase)
     {
-        qDebug()<<"3";
+
         while(getline(inDataBase,tmp[counter]))
         {
 
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
@@ -118,4 +121,12 @@ void SignInForm::update_vector()
 
 
 
+
+
+
+
+void SignInForm::on_forrgotBtn_clicked()
+{
+    forget_form->show();
+}
 

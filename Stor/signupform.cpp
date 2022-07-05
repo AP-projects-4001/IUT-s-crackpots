@@ -20,6 +20,10 @@ signUpForm::signUpForm(QWidget *parent) :
     ui->setupUi(this);
     ui->errorLabel->hide();
 
+    for(int i=0;i<22;++i)
+    {
+        ui->cityComboBox->addItem(QString::fromStdString(cities[i]));
+    }
     connect(parent,SIGNAL(changeMode(bool)),this,SLOT(setMode(bool)));
     if(flag==1)
     {
@@ -74,7 +78,9 @@ void signUpForm::on_registerBtn_clicked()
                 }
 
                 UserProfile tmp;
-                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString(),"0");
+
+                tmp.setData(ui->usernamelineEdit->text().toStdString(),ui->passwordLineEdit->text().toStdString(),ui->firstNameLineEdit->text().toStdString(),ui->lastNameLineEdit->text().toStdString(),ui->cityComboBox->currentText().toStdString(),ui->emailLineEdit->text().toStdString(),ui->addressLineEdit->text().toStdString(),ui->titel->text().toStdString(),"0");
+
                 UP.push_back(tmp);
 
                 ofstream outDataBase("D:\\Alireza\\coDataBase.txt",ios::app);
@@ -82,6 +88,7 @@ void signUpForm::on_registerBtn_clicked()
                 outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';
+                outDataBase<<ui->cityComboBox->currentText().toStdString()<<'\n';
                 outDataBase<<ui->emailLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->addressLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->titel->text().toStdString()<<'\n';
@@ -101,6 +108,7 @@ void signUpForm::on_registerBtn_clicked()
                 ui->addressLineEdit->clear();
 
                 outDataBase.close();
+
 
                 close();
         }
@@ -132,7 +140,7 @@ void signUpForm::on_showPasscheckBox_stateChanged(int arg1)
 void signUpForm::update_vector()
 {
     UserProfile us;
-    string tmp[9];
+    string tmp[10];
     int counter{0};
     ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
     while(getline(inDataBase,tmp[counter]))
@@ -140,7 +148,9 @@ void signUpForm::update_vector()
 
         if(tmp[counter]=="#####")
         {
-            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
+
+            us.setData(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8]);
+
             UP.push_back(us);
             counter=0;
         }

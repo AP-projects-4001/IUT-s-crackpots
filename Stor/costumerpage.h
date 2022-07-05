@@ -15,7 +15,7 @@ class costumerPage : public QMainWindow , public UserProfile
 
 signals:
 
-    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString e,QString a,int id);
+    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString c,QString e,QString a,int id);
 
 private slots:
 

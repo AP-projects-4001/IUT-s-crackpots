@@ -50,9 +50,12 @@ void costumerPage::on_profileBtn_clicked()
             getline(inDataBase,tmp);
             lName=tmp;
             getline(inDataBase,tmp);
+            city=tmp;
+            getline(inDataBase,tmp);
             email=tmp;
             getline(inDataBase,tmp);
             address=tmp;
+            getline(inDataBase,tmp);
             getline(inDataBase,tmp);
             getline(inDataBase,tmp);
             this->id=QString::fromStdString(tmp).toInt();
@@ -63,7 +66,7 @@ void costumerPage::on_profileBtn_clicked()
     }
     inDataBase.close();
     profile->show();
-    emit sendUserInformation(QString::fromStdString(username),QString::fromStdString(password),QString::fromStdString(fName),QString::fromStdString(lName),QString::fromStdString(email),QString::fromStdString(address),id);
+    emit sendUserInformation(QString::fromStdString(username),QString::fromStdString(password),QString::fromStdString(fName),QString::fromStdString(lName),QString::fromStdString(city),QString::fromStdString(email),QString::fromStdString(address),id);
 
 
 
@@ -82,7 +85,7 @@ void costumerPage::on_addMoney_clicked()
         if(tmp==username)
         {
             info+=username+'\n';
-            for(int i=0;i<6;++i)
+            for(int i=0;i<7;++i)
             {
                 getline(inDataBase,tmp);
                 info+=tmp+'\n';
