@@ -39,7 +39,7 @@ void clientPage::setInformation(QString us, QString m , int i)
 
 void clientPage::on_profileBtn_clicked()
 {
-    ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
+    ifstream inDataBase("userDataBase.txt",ios_base::in);
     string tmp;
 
     while(getline(inDataBase,tmp))
