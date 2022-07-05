@@ -47,7 +47,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     coPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
 
                 }
 
@@ -55,7 +55,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     clPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
                 }
 
 
@@ -82,7 +82,7 @@ void SignInForm::update_vector()
 {
 
     UserProfile us;
-    string tmp[10];
+    string tmp[11];
     int counter{0};
     int idCounter{1};
     ifstream inDataBase("userDataBase.txt",ios_base::in);
@@ -96,7 +96,7 @@ void SignInForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],tmp[9],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;

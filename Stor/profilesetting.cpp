@@ -9,13 +9,15 @@ profileSetting::profileSetting(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::profileSetting)
 {
-    connect(parent,SIGNAL(sendUserInformation(QString ,QString ,QString ,QString ,QString ,QString ,QString,int )),this,SLOT(setInformation(QString ,QString ,QString ,QString ,QString ,QString ,QString ,int )));
+    connect(parent,SIGNAL(sendUserInformation(QString ,QString,QString ,QString ,QString ,QString ,QString ,QString,int )),this,SLOT(setInformation(QString ,QString ,QString ,QString ,QString ,QString ,QString ,QString ,int )));
     ui->setupUi(this);
 
     for (int i=0;i<22;i++)
     {
         ui->comboBox->addItem(QString::fromStdString(cities[i]));
     }
+    ui->genderComboBox->addItem("Male");
+    ui->genderComboBox->addItem("Female");
 }
 
 profileSetting::~profileSetting()
@@ -24,7 +26,7 @@ profileSetting::~profileSetting()
 }
 
 
-void profileSetting::setInformation(QString us, QString ps, QString fn, QString ln,QString c, QString e, QString a, int id)
+void profileSetting::setInformation(QString us, QString ps, QString fn, QString ln,QString g,QString c, QString e, QString a, int id)
 {
     ui->IdLabel->setText(QString::number(id));
     ui->usernameLineEdit->setText(us);
@@ -33,6 +35,7 @@ void profileSetting::setInformation(QString us, QString ps, QString fn, QString 
     ui->emailLineEdit->setText(e);
     ui->addressLineEdit->setText(a);
     ui->comboBox->setCurrentText(c);
+    ui->genderComboBox->setCurrentText(g);
     this->ps=ps.toStdString();
 }
 
@@ -40,16 +43,17 @@ void profileSetting::on_saveBtn_clicked()
 {
     try
     {
-        if(ui->newPasswordLineEdit->text()!=ui->confrimPasswordLineEdit->text())
-        {
-            int x=0;
-            throw x;
-        }
 
-        else if(ui->currentPasswordLineEdit->text().toStdString()!=ps)
+
+        if(ui->currentPasswordLineEdit->text().toStdString()!=ps && ui->changePasswordcheckBox->isChecked())
         {
             int x=1;
             throw x;
+            if(ui->newPasswordLineEdit->text()!=ui->confrimPasswordLineEdit->text())
+            {
+                int x=0;
+                throw x;
+            }
         }
 
         ifstream indataBase("userDataBase.txt",ios_base::in);
@@ -75,6 +79,8 @@ void profileSetting::on_saveBtn_clicked()
                         info+=ui->firstNameLineEdit->text().toStdString()+'\n';
                         getline(indataBase,tmp);
                         info+=ui->lastNameLineEdit->text().toStdString()+'\n';
+                        getline(indataBase,tmp);
+                        info+=ui->genderComboBox->currentText().toStdString()+'\n';
                         getline(indataBase,tmp);
                         info+=ui->comboBox->currentText().toStdString()+'\n';
                         getline(indataBase,tmp);
@@ -105,6 +111,12 @@ void profileSetting::on_saveBtn_clicked()
         else if(x==1)
             QMessageBox::critical(this,"password","Wrong password!!");
     }
+//    fName=ui->firstNameLineEdit->text().toStdString();
+//    lName=ui->lastNameLineEdit->text().toStdString();
+//    gender=ui->genderComboBox->currentText().toStdString();
+//    city=ui->comboBox->currentText().toStdString();
+//    email=ui->emailLineEdit->text().toStdString();
+//    address=ui->addressLineEdit->text().toStdString();
 
     ui->currentPasswordLineEdit->clear();
     ui->confrimPasswordLineEdit->clear();

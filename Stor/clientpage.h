@@ -17,13 +17,13 @@ public:
     ~clientPage();
 
 signals:
-    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString c,QString e,QString a,int id);
+    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString g,QString c,QString e,QString a,int id);
 
 
 private slots:
     void on_storBtn_clicked();
 
-    void setInformation(QString us,QString m,int id);
+    void setInformation(QString us,QString m,QString g,int id);
 
     void on_profileBtn_clicked();
 
