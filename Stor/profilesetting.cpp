@@ -56,11 +56,9 @@ void profileSetting::on_saveBtn_clicked()
             }
         }
 
-<<<<<<< HEAD
+
         ifstream indataBase("database.txt",ios_base::in);
-=======
-        ifstream indataBase("userDataBase.txt",ios_base::in);
->>>>>>> 0691837fa83a4540b7947ce528d8d5e074153540
+
 
         string tmp;
         string info="";
@@ -101,11 +99,9 @@ void profileSetting::on_saveBtn_clicked()
                         info+=tmp+'\n';
                     }
              }
-<<<<<<< HEAD
+
         ofstream outDataBase("database.txt",ios_base::out);
-=======
-        ofstream outDataBase("userDataBase.txt",ios_base::out);
->>>>>>> 0691837fa83a4540b7947ce528d8d5e074153540
+
         outDataBase<<info;
         indataBase.close();
         outDataBase.close();

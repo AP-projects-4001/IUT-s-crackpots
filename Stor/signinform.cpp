@@ -85,11 +85,9 @@ void SignInForm::update_vector()
     string tmp[11];
     int counter{0};
     int idCounter{1};
-<<<<<<< HEAD
+
     ifstream inDataBase("database.txt",ios_base::in);
-=======
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
->>>>>>> 0691837fa83a4540b7947ce528d8d5e074153540
+
 
     if(inDataBase)
     {
@@ -117,11 +115,9 @@ void SignInForm::update_vector()
     }
     else
     {
-<<<<<<< HEAD
+
         ofstream outDataBase("database.txt",ios_base::out);
-=======
-        ofstream outDataBase("userDataBase.txt",ios_base::out);
->>>>>>> 0691837fa83a4540b7947ce528d8d5e074153540
+
         outDataBase.close();
     }
 }
