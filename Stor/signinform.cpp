@@ -37,9 +37,16 @@ void SignInForm::on_loginBtn_clicked()
     up.clear();
     update_vector();
     bool empty=true;
+
+    string usernameString=ui->usernameLineEdit->text().toStdString();
+    string usernameStr="";
+    for (int i = 0; i < usernameString.length(); i++){
+        usernameStr += tolower(usernameString[i]);
+    }
+
     for(int i=0;i<up.size();++i)
     {
-        if(ui->usernameLineEdit->text().toStdString()==up[i].getUsername())
+        if(usernameStr==up[i].getUsername())
         {
             if(ui->passwordLineEdit->text().toStdString()==up[i].getPassword())
             {
