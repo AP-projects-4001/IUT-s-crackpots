@@ -15,6 +15,10 @@ private slots:
     void update_vector();
 
 
+    void on_refreshBtn_clicked();
+
+    void update_list();
+
 public:
     explicit Admin_Page(QWidget *parent = nullptr);
     ~Admin_Page();

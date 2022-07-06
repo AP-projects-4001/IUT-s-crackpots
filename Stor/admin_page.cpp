@@ -17,19 +17,9 @@ Admin_Page::Admin_Page(QWidget *parent) :
 //    temp->setText("arash");
 //    ui->listWidget->addItem(temp);
     update_vector();
+    update_list();
 
-    for(int i=0; i<up.size(); i++){
-        if (up[i].getRole() == "Costumer"){
-            QListWidgetItem *temp = new QListWidgetItem(ui->customerListWidget);
-            temp->setText(QString::fromStdString(up[i].getUsername()));
-            ui->customerListWidget->addItem(temp);
-        }
-        if(up[i].getRole() == "Client"){
-            QListWidgetItem *temp = new QListWidgetItem(ui->clientListWidget);
-            temp->setText(QString::fromStdString(up[i].getUsername()));
-            ui->clientListWidget->addItem(temp);
-        }
-    }
+
 }
 
 Admin_Page::~Admin_Page()
@@ -78,3 +68,30 @@ void Admin_Page::update_vector()
     }
 
 }
+
+void Admin_Page::on_refreshBtn_clicked()
+{
+    up.clear();
+    update_vector();
+    ui->clientListWidget->clear();
+    ui->customerListWidget->clear();
+    update_list();
+
+}
+
+void Admin_Page::update_list()
+{
+    for(int i=0; i<up.size(); i++){
+        if (up[i].getRole() == "Costumer"){
+            QListWidgetItem *temp = new QListWidgetItem(ui->customerListWidget);
+            temp->setText(QString::fromStdString(up[i].getUsername()));
+            ui->customerListWidget->addItem(temp);
+        }
+        if(up[i].getRole() == "Client"){
+            QListWidgetItem *temp = new QListWidgetItem(ui->clientListWidget);
+            temp->setText(QString::fromStdString(up[i].getUsername()));
+            ui->clientListWidget->addItem(temp);
+        }
+    }
+}
+
