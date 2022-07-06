@@ -52,7 +52,7 @@ void profileSetting::on_saveBtn_clicked()
             throw x;
         }
 
-        ifstream indataBase("D:\\Alireza\\coDataBase.txt");
+        ifstream indataBase("database.txt",ios_base::in);
 
         string tmp;
         string info="";
@@ -91,7 +91,7 @@ void profileSetting::on_saveBtn_clicked()
                         info+=tmp+'\n';
                     }
              }
-        ofstream outDataBase("D:\\Alireza\\coDataBase.txt");
+        ofstream outDataBase("database.txt",ios_base::out);
         outDataBase<<info;
         indataBase.close();
         outDataBase.close();
