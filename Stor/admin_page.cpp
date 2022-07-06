@@ -2,10 +2,11 @@
 #include "ui_admin_page.h"
 #include "userprofile.h"
 #include "QListWidget"
+#include <string>
 #include <fstream>
 #include <vector>
 
-
+int Admin_Page::flag = 0;
 
 Admin_Page::Admin_Page(QWidget *parent) :
     QDialog(parent),
@@ -93,5 +94,64 @@ void Admin_Page::update_list()
             ui->clientListWidget->addItem(temp);
         }
     }
+    if (flag == 0){
+        cust = new QListWidgetItem(ui->customerListWidget);
+        clie = new QListWidgetItem(ui->clientListWidget);
+        flag++;
+    }
+}
+
+
+void Admin_Page::on_showBtn_clicked()
+{
+
+    if (ui->customerListWidget->currentItem()){
+        cust = ui->customerListWidget->currentItem();
+        string userName = cust->text().toStdString();
+        string n = "";
+        int flag = 0;
+        for (int i=0  ; i<up.size(); i++){
+            if(up[i].getUsername() == userName){
+                n += up[i].getFname();
+                n += up[i].getLname();
+                n += up[i].getUsername();
+                n += up[i].getEmali();
+                n += up[i].getMoney();
+                n += up[i].getCity();
+                n += up[i].getAdrress();
+                flag = 1;
+            }
+            if (flag == 1)
+                ui->showInfo->setText(QString::fromStdString(n));
+
+        }
+    }
+    if (ui->clientListWidget->currentItem()){
+        clie = ui->clientListWidget->currentItem();
+        string userName = cust->text().toStdString();
+        string n = "";
+        int flag = 0;
+        for (int i=0  ; i<up.size(); i++){
+            if(up[i].getUsername() == userName){
+                n += up[i].getFname();
+                n += up[i].getLname();
+                n += up[i].getUsername();
+                n += up[i].getEmali();
+                n += up[i].getMoney();
+                n += up[i].getCity();
+                n += up[i].getAdrress();
+                flag = 1;
+            }
+            if (flag == 1)
+                ui->showInfo->setText(QString::fromStdString(n));
+        }
+    }
+}
+
+
+
+void Admin_Page::on_removeBtn_clicked()
+{
+
 }
 
