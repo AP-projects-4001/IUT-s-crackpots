@@ -86,7 +86,9 @@ void signUpForm::on_registerBtn_clicked()
 
                 UP.push_back(tmp);
 
-                ofstream outDataBase("userDataBase.txt",ios_base::app);
+
+                ofstream outDataBase("database.txt",ios_base::app);
+
                 outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
@@ -146,7 +148,9 @@ void signUpForm::update_vector()
     UserProfile us;
     string tmp[11];
     int counter{0};
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+
+    ifstream inDataBase("database.txt",ios_base::in);
+
     while(getline(inDataBase,tmp[counter]))
     {
 

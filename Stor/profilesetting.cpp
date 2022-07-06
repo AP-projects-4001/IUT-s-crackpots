@@ -56,7 +56,9 @@ void profileSetting::on_saveBtn_clicked()
             }
         }
 
-        ifstream indataBase("userDataBase.txt",ios_base::in);
+
+        ifstream indataBase("database.txt",ios_base::in);
+
 
         string tmp;
         string info="";
@@ -97,7 +99,9 @@ void profileSetting::on_saveBtn_clicked()
                         info+=tmp+'\n';
                     }
              }
-        ofstream outDataBase("userDataBase.txt",ios_base::out);
+
+        ofstream outDataBase("database.txt",ios_base::out);
+
         outDataBase<<info;
         indataBase.close();
         outDataBase.close();

@@ -57,7 +57,9 @@ void costumerPage::setInformation(QString us,QString m ,QString g,int i)
 
 void costumerPage::on_profileBtn_clicked()
 {
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+
+    ifstream inDataBase("database.txt",ios_base::in);
+
     string tmp;
 
     while(getline(inDataBase,tmp))
@@ -99,7 +101,9 @@ void costumerPage::on_profileBtn_clicked()
 
 void costumerPage::on_addMoney_clicked()
 {
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+
+    ifstream inDataBase("database.txt",ios_base::in);
+
     string tmp;
     string info="";
     ui->moneyLabel->setText(QString::number(ui->spinBoxMoney->value()+ui->moneyLabel->text().toInt()));
@@ -126,7 +130,9 @@ void costumerPage::on_addMoney_clicked()
         }
     }
     inDataBase.close();
-    ofstream outDataBase("userDataBase.txt",ios_base::out);
+
+    ofstream outDataBase("database.txt",ios_base::out);
+
     outDataBase<<info;
     outDataBase.close();
 }

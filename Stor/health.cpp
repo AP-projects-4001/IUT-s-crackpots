@@ -12,6 +12,6 @@ Health::Health()
 void Health::insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string use,
                     std::string deprecationTime, std::string about)
 {
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/health.txt",ios::app);
+    ofstream outDataBase("database.txt",ios_base::app);
     outDataBase.close();
 }

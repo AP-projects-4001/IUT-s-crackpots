@@ -59,7 +59,9 @@ void clientPage::setInformation(QString us, QString m ,QString g, int i)
 
 void clientPage::on_profileBtn_clicked()
 {
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+
+    ifstream inDataBase("database.txt",ios_base::in);
+
     string tmp;
 
     while(getline(inDataBase,tmp))
