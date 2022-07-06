@@ -15,7 +15,6 @@ protected:
     string role;
     string money;
     string city;
-    string gender;
     static int idCounter;
     int id;
     string cities[22]={"Ardebil","Bandar Abas","Birjand","Bojnoord","Esfhan","Gilan","Karaj","Kerman","Kermanshah","Khozestan","Mashhad","Mazandaran","Orumie","Qazvin","Qome","Semnan","ShahrKourd","Shiraz","Sistan va Balouchestan","Tabriz","Tehran","Yazd",};
@@ -23,8 +22,8 @@ protected:
 public:
     UserProfile();
 
-    void setData(string u,string p,string fn,string ln,string g,string c,string e,string a,string r,string money);
-    void setDataSpecial(string u,string p,string fn,string ln,string g,string c,string e,string a,string r,string m, int i);
+    void setData(string u,string p,string fn,string ln,string c,string e,string a,string r,string money);
+    void setDataSpecial(string u,string p,string fn,string ln,string c,string e,string a,string r,string m, int i);
     int getId();
     string getUsername();
     string getPassword();
@@ -35,7 +34,6 @@ public:
     string getRole();
     string getMoney();
     string getCity();
-    string getGender();
 
 };
 

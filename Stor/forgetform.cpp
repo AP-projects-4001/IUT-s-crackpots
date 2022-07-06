@@ -38,7 +38,7 @@ void forgetForm::update_vector()
     string tmp[10];
     int counter{0};
     int idCounter{1};
-    ifstream inDataBase("D:\\Alireza\\coDataBase.txt");
+    ifstream inDataBase("database.txt",ios_base::in);
 
     if(inDataBase)
     {
@@ -49,7 +49,7 @@ void forgetForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],tmp[9],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
@@ -66,7 +66,7 @@ void forgetForm::update_vector()
     }
     else
     {
-        ofstream outDataBase("D:\\Alireza\\coDataBase.txt");
+        ofstream outDataBase("database.txt",ios_base::out);
         outDataBase.close();
     }
 }

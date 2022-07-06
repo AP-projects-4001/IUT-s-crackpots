@@ -2,8 +2,6 @@
 #include "ui_costumerpage.h"
 #include "fstream"
 #include "string"
-#include "QPixmap"
-
 
 using namespace std;
 
@@ -12,19 +10,8 @@ costumerPage::costumerPage(QWidget *parent) :
     ui(new Ui::costumerPage)
 {
     ui->setupUi(this);
-    QPixmap storPic(":/Costumer and client/img/store.png");
-    QPixmap historyPic(":/Costumer and client/img/history.png");
-    QPixmap backgrounf(":/Costumer and client/img/costumerBackground.jpg");
-
-
-
-    ui->storeBtn->setIcon(storPic);
-    ui->storeBtn->setIconSize(storPic.rect().size());
-    ui->historyBtn->setIcon(historyPic);
-    ui->historyBtn->setIconSize(historyPic.rect().size());
-
     profile=new profileSetting(this);
-    connect(parent ,SIGNAL(sendUserInformation(QString,QString ,QString ,int)),this,SLOT(setInformation(QString,QString,QString ,int)));
+    connect(parent ,SIGNAL(sendUserInformation(QString,QString ,int)),this,SLOT(setInformation(QString,QString,int)));
 }
 
 costumerPage::~costumerPage()
@@ -33,25 +20,13 @@ costumerPage::~costumerPage()
 }
 
 
-void costumerPage::setInformation(QString us,QString m ,QString g,int i)
+void costumerPage::setInformation(QString us,QString m ,int i)
 {
 
     username=us.toStdString();
     ui->usernameLabel->setText(QString::fromStdString(username));
     ui->idLabel->setText(QString::number(i));
     ui->moneyLabel->setText(m);
-    if(g=="Male")
-    {
-        QPixmap profPic(":/Costumer and client/img/manIcon.jpg");
-        ui->profileBtn->setIcon(profPic);
-        ui->profileBtn->setIconSize(profPic.size());
-    }
-    else if(g=="Female")
-    {
-        QPixmap profPic(":/Costumer and client/img/womanIcon.png");
-        ui->profileBtn->setIcon(profPic);
-        ui->profileBtn->setIconSize(profPic.size());
-    }
 
 }
 
@@ -60,7 +35,7 @@ void costumerPage::setInformation(QString us,QString m ,QString g,int i)
 
 void costumerPage::on_profileBtn_clicked()
 {
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+    ifstream inDataBase("database.txt",ios_base::in);
     string tmp;
 
     while(getline(inDataBase,tmp))
@@ -74,8 +49,6 @@ void costumerPage::on_profileBtn_clicked()
             fName=tmp;
             getline(inDataBase,tmp);
             lName=tmp;
-            getline(inDataBase,tmp);
-            gender=tmp;
             getline(inDataBase,tmp);
             city=tmp;
             getline(inDataBase,tmp);
@@ -93,7 +66,7 @@ void costumerPage::on_profileBtn_clicked()
     }
     inDataBase.close();
     profile->show();
-    emit sendUserInformation(QString::fromStdString(username),QString::fromStdString(password),QString::fromStdString(fName),QString::fromStdString(lName),QString::fromStdString(gender),QString::fromStdString(city),QString::fromStdString(email),QString::fromStdString(address),id);
+    emit sendUserInformation(QString::fromStdString(username),QString::fromStdString(password),QString::fromStdString(fName),QString::fromStdString(lName),QString::fromStdString(city),QString::fromStdString(email),QString::fromStdString(address),id);
 
 
 
@@ -102,7 +75,7 @@ void costumerPage::on_profileBtn_clicked()
 
 void costumerPage::on_addMoney_clicked()
 {
-    ifstream inDataBase("userDataBase.txt",ios_base::in);
+    ifstream inDataBase("database.txt",ios_base::in);
     string tmp;
     string info="";
     ui->moneyLabel->setText(QString::number(ui->spinBoxMoney->value()+ui->moneyLabel->text().toInt()));
@@ -112,7 +85,7 @@ void costumerPage::on_addMoney_clicked()
         if(tmp==username)
         {
             info+=username+'\n';
-            for(int i=0;i<8;++i)
+            for(int i=0;i<7;++i)
             {
                 getline(inDataBase,tmp);
                 info+=tmp+'\n';
@@ -129,11 +102,8 @@ void costumerPage::on_addMoney_clicked()
         }
     }
     inDataBase.close();
-    ofstream outDataBase("userDataBase.txt",ios_base::out);
+    ofstream outDataBase("database.txt",ios_base::out);
     outDataBase<<info;
     outDataBase.close();
 }
-
-
-
 

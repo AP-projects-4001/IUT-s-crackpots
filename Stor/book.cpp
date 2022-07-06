@@ -9,9 +9,8 @@ Book::Book()
 
 }
 
-void Book::setData(int id, std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
-                  std::string jeldType, std::string awards, std::string language, std::string about) {
-    this->id = id;
+void Book::setData(std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
+                  std::string jeldType, std::string awards, std::string language, int user_id) {
     this->name = name;
     this->price = price;
     this->remainingNum = remainingNum;
@@ -20,8 +19,26 @@ void Book::setData(int id, std::string name, int price, int remainingNum, int bo
     this->jeldType = jeldType;
     this->awards = awards;
     this->language = language;
-    this->about = about;
-
-
+    this->user_id = user_id;
+    this->id = idCounter;
+    idCounter++;
 }
+
+string Book::getseriesType() {
+    return seriesType;
+}
+
+string Book::getjeldType() {
+    return jeldType;
+}
+
+string Book::getawards() {
+    return awards;
+}
+
+string Book::getlanguage() {
+    return language;
+}
+
+
 

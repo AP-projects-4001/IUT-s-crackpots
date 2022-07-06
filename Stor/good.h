@@ -1,5 +1,6 @@
 #ifndef GOOD_H
 #define GOOD_H
+
 #include <string>
 
 class good
@@ -13,25 +14,18 @@ protected:
     int user_id;
 
 public:
-    // Constructor
-    good();
 
     // Setter and getter functions
     void setId(int id);
     int getId();
-    void setName(std::string name);
+    int getUsId();
     std::string getName();
-    void setPrice(int price);
     int getPrice();
-    void setRemainingNum(int remainingNum);
     int getRemainingNum();
-    void setBoughtNum(int boughtNum);
     int getBoughtNum();
 
-
-    // Other functions for model
-    virtual void getGoods();
-    virtual void insert();
+public:
+    good();
 };
 
 #endif // GOOD_H

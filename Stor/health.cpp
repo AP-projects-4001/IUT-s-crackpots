@@ -9,9 +9,29 @@ Health::Health()
 
 }
 
-void Health::insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string use,
-                    std::string deprecationTime, std::string about)
+void Health::setData(std::string name, int price, int remainingNum, int boughtNum, std::string use,
+                    std::string deprecationTime, std::string about, int user_id)
 {
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/health.txt",ios::app);
-    outDataBase.close();
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->use = use;
+    this->deprecationTime = deprecationTime;
+    this->about = about;
+    this->user_id =user_id;
+    this->id = idCounter;
+    idCounter++;
+}
+
+string Health::getuse() {
+    return use;
+}
+
+string Health::getdeprecationTime() {
+    return deprecationTime;
+}
+
+string Health::getabout() {
+    return about;
 }

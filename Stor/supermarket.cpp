@@ -9,9 +9,23 @@ Supermarket::Supermarket()
 
 }
 
-void Supermarket::insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string use,
-    std::string about)
-{
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/supermarket.txt",ios::app);
-    outDataBase.close();
+void Supermarket::setData(std::string name, int price, int remainingNum, int boughtNum, std::string use,
+                          std::string about, int user_id) {
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->use = use;
+    this->about = about;
+    this->user_id = user_id;
+    this->id = idCounter;
+    idCounter++;
+}
+
+string Supermarket::getuse() {
+    return use;
+}
+
+string Supermarket::getabout() {
+    return about;
 }

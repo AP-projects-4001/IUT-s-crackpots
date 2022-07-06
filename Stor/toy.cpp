@@ -9,9 +9,29 @@ Toy::Toy()
 
 }
 
-void Toy::insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string type,
-                 std::string use, std::string about)
+void Toy::setData(std::string name, int price, int remainingNum, int boughtNum, std::string type,
+                           std::string use, std::string about, int user_id)
 {
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/toys.txt",ios::app);
-    outDataBase.close();
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->type = type;
+    this->use = use;
+    this->about = about;
+    this->user_id = user_id;
+    this->id = idCounter;
+    idCounter++;
+}
+
+string Toy::gettype() {
+    return type;
+}
+
+string Toy::getuse() {
+    return use;
+}
+
+string Toy::getabout() {
+    return about;
 }

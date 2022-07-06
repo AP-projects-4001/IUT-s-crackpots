@@ -15,6 +15,9 @@ public:
     explicit shopView(QWidget *parent = nullptr);
     ~shopView();
 
+private slots:
+    void on_addBtn_clicked();
+
 private:
     Ui::shopView *ui;
 

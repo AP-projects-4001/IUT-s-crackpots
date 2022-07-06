@@ -29,6 +29,9 @@ SOURCES += \
     furniture.cpp \
     good.cpp \
     health.cpp \
+    language.cpp \
+    english.cpp \
+    persian.cpp \
     laptop.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -63,6 +66,9 @@ HEADERS += \
     cloth.h \
     forgetform.h \
     furniture.h \
+    language.h \
+    english.h \
+    persian.h \
     good.h \
     health.h \
     laptop.h \
@@ -106,6 +112,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    img.qrc \
-    img.qrc
+RESOURCES +=

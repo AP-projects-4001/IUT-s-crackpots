@@ -9,9 +9,39 @@ Mobile::Mobile()
 
 }
 
-void Mobile::insert(int id, std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
-                    enum operatingSystem)
+void Mobile::setData(string name, int price, int remainingNum, int boughtNum, int memoryGB, string screenTech, string networks, int rezoloutionMPx,
+                    string operatingSystem, int user_id)
 {
-    ofstream outDataBase("/Users/parsakhodadadi/Desktop/data/mobiles.txt",ios::app);
-    outDataBase.close();
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->memoryGB = memoryGB;
+    this->screenTech = screenTech;
+    this->networks = networks;
+    this->rezoloutionMPx = rezoloutionMPx;
+    this->operatingSystem = operatingSystem;
+    this->user_id = user_id;
+    this->id = idCounter;
+    idCounter++;
+}
+
+int Mobile::getmemoryGB() {
+    return memoryGB;
+}
+
+string Mobile::getscreenTech() {
+    return screenTech;
+}
+
+string Mobile::getnetworks() {
+    return networks;
+}
+
+int Mobile::getrezoloutionMPx() {
+    return rezoloutionMPx;
+}
+
+string Mobile::getoperatingSystem() {
+    return operatingSystem;
 }
