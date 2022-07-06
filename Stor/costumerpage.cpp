@@ -14,9 +14,6 @@ costumerPage::costumerPage(QWidget *parent) :
     ui->setupUi(this);
     QPixmap storPic(":/Costumer and client/img/store.png");
     QPixmap historyPic(":/Costumer and client/img/history.png");
-    QPixmap backgrounf(":/Costumer and client/img/costumerBackground.jpg");
-
-
 
     ui->storeBtn->setIcon(storPic);
     ui->storeBtn->setIconSize(storPic.rect().size());

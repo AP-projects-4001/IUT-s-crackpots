@@ -33,6 +33,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     profilesetting.cpp \
+    setstorname.cpp \
     signinform.cpp \
     userprofile.cpp \
     admin_page.cpp \
@@ -68,6 +69,7 @@ HEADERS += \
     laptop.h \
     mainwindow.h \
     profilesetting.h \
+    setstorname.h \
     shopview.h \
     signinform.h \
     signupform.h \
@@ -95,6 +97,7 @@ FORMS += \
     forgetform.ui \
     mainwindow.ui \
     profilesetting.ui \
+    setstorname.ui \
     shopview.ui \
     signinform.ui \
     signupform.ui \

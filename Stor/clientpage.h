@@ -2,6 +2,7 @@
 #define CLIENTPAGE_H
 #include "shopview.h"
 #include <QMainWindow>
+#include "setstorname.h"
 #include "profilesetting.h"
 
 namespace Ui {
@@ -27,10 +28,15 @@ private slots:
 
     void on_profileBtn_clicked();
 
+    void setName(QString n);
+
+    void on_nameAction_triggered();
+
 private:
     Ui::clientPage *ui;
     shopView * shop_view;
     profileSetting * profile;
+    setStorName * setNamePage;
 
 };
 

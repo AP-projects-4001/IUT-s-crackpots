@@ -10,6 +10,7 @@ clientPage::clientPage(QWidget *parent) :
     ui->setupUi(this);
     shop_view=new shopView(this);
     profile=new profileSetting(this);
+    setNamePage=new setStorName(this);
     connect(parent ,SIGNAL(sendUserInformation(QString,QString ,QString ,int)),this,SLOT(setInformation(QString,QString,QString ,int)));
     QPixmap storPic(":/Costumer and client/img/store.png");
     QPixmap historyPic(":/Costumer and client/img/history.png");
@@ -17,6 +18,7 @@ clientPage::clientPage(QWidget *parent) :
     ui->storBtn->setIconSize(storPic.rect().size());
     ui->historyBtn->setIcon(historyPic);
     ui->historyBtn->setIconSize(historyPic.size());
+
 }
 
 clientPage::~clientPage()
@@ -92,4 +94,24 @@ void clientPage::on_profileBtn_clicked()
     profile->show();
     emit sendUserInformation(QString::fromStdString(username),QString::fromStdString(password),QString::fromStdString(fName),QString::fromStdString(lName),QString::fromStdString(gender),QString::fromStdString(city),QString::fromStdString(email),QString::fromStdString(address),id);
 }
+
+
+void clientPage::on_nameAction_triggered()
+{
+    setNamePage->show();
+    connect(setNamePage,SIGNAL(sendName(QString)),this,SLOT(setName(QString)));
+}
+
+
+void clientPage::setName(QString n)
+{
+
+    ui->shopNameLabel->setText(n);
+    ofstream outClientDataBase("client.txt",ios_base::app);
+
+
+}
+
+
+
 

@@ -95,7 +95,13 @@
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="shopNameLabel">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For setting or changing stor name ,go to File--&amp;gt;shop--&amp;gt;Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="whatsThis">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
              <string>Shop</string>
             </property>
@@ -183,6 +189,9 @@
               <height>200</height>
              </size>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -196,6 +205,9 @@
               <height>200</height>
              </size>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -208,6 +220,9 @@
               <width>200</width>
               <height>200</height>
              </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string/>
@@ -247,7 +262,25 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuShop">
+     <property name="title">
+      <string>Shop</string>
+     </property>
+     <addaction name="nameAction"/>
+    </widget>
+    <addaction name="menuShop"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
+  <action name="nameAction">
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
