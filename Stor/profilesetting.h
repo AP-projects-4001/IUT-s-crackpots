@@ -15,7 +15,7 @@ class profileSetting : public QMainWindow , public UserProfile
 
 private slots:
 
-    void setInformation(QString us,QString ps,QString fn,QString ln,QString c,QString e,QString a, int id);
+    void setInformation(QString us,QString ps,QString fn,QString ln,QString g,QString c,QString e,QString a, int id);
 
     void on_saveBtn_clicked();
 

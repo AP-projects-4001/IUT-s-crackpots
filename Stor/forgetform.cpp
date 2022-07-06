@@ -49,7 +49,7 @@ void forgetForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],tmp[9],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
