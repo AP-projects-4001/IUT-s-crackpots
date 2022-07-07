@@ -89,7 +89,15 @@ void signUpForm::on_registerBtn_clicked()
 
                 ofstream outDataBase("database.txt",ios_base::app);
 
-                outDataBase<<ui->usernamelineEdit->text().toStdString()<<'\n';
+
+                string usernameString=ui->usernamelineEdit->text().toStdString();
+                string usernameStr="";
+                for (int i = 0; i < usernameString.length(); i++){
+                    usernameStr += tolower(usernameString[i]);
+                }
+                outDataBase<<usernameStr<<'\n';
+
+
                 outDataBase<<ui->passwordLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->firstNameLineEdit->text().toStdString()<<'\n';
                 outDataBase<<ui->lastNameLineEdit->text().toStdString()<<'\n';

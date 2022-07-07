@@ -2,6 +2,7 @@
 #include "ui_forgetform.h"
 #include "fstream"
 #include "string"
+#include "QMessageBox"
 using namespace std;
 
 forgetForm::forgetForm(QWidget *parent) :
@@ -18,6 +19,7 @@ forgetForm::~forgetForm()
 
 void forgetForm::on_findBtn_clicked()
 {
+    int flag=0;
     up.clear();
     update_vector();
 
@@ -26,9 +28,14 @@ void forgetForm::on_findBtn_clicked()
         if(up[i].getEmali()==ui->emialLineEdit->text().toStdString())
         {
             ui->passwordLineEdit->setText(QString::fromStdString(up[i].getPassword()));
+            flag=1;
         }
     }
 
+    if(flag==0)
+    {
+        QMessageBox::warning(this,"...","Invalid Email!");
+    }
 
 }
 
