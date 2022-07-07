@@ -20,6 +20,7 @@ Admin_Page::Admin_Page(QWidget *parent) :
 //    ui->listWidget->addItem(temp);
     update_vector();
     update_list();
+    profile=new profileSetting(this);
 
 
 }
@@ -192,6 +193,34 @@ void Admin_Page::on_removeBtn_clicked()
                 message.critical(this, "note", "deleted succesfully!");
                 message.setFixedSize(500, 200);
                 up[i].getRole() = "deleted";
+            }
+        }
+    }
+}
+
+
+void Admin_Page::on_changeBtn_clicked()
+{
+    profile->show();
+    if(ui->clientListWidget->currentItem())
+    {
+        clie=ui->clientListWidget->currentItem();
+        for(int i=0;i<up.size();++i)
+        {
+            if(up[i].getUsername()==clie->text().toStdString())
+            {
+                emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getPassword()),QString::fromStdString(up[i].getFname()),QString::fromStdString(up[i].getLname()),QString::fromStdString(up[i].getGender()),QString::fromStdString(up[i].getCity()),QString::fromStdString(up[i].getEmali()),QString::fromStdString(up[i].getAdrress()),up[i].getId());
+            }
+        }
+    }
+    if(ui->customerListWidget->currentItem())
+    {
+        cust=ui->customerListWidget->currentItem();
+        for(int i=0;i<up.size();++i)
+        {
+            if(up[i].getUsername()==cust->text().toStdString())
+            {
+                emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getPassword()),QString::fromStdString(up[i].getFname()),QString::fromStdString(up[i].getLname()),QString::fromStdString(up[i].getGender()),QString::fromStdString(up[i].getCity()),QString::fromStdString(up[i].getEmali()),QString::fromStdString(up[i].getAdrress()),up[i].getId());
             }
         }
     }
