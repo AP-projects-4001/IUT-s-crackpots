@@ -26,7 +26,6 @@ Admin_Page::Admin_Page(QWidget *parent) :
 Admin_Page::~Admin_Page()
 {
     delete ui;
-
 }
 
 
@@ -83,7 +82,7 @@ void Admin_Page::on_refreshBtn_clicked()
 
 void Admin_Page::update_list()
 {
-    for(unsigned int i=0; i<up.size(); i++){
+    for(int i=0; i<up.size(); i++){
         if (up[i].getRole() == "Costumer"){
             QListWidgetItem *temp = new QListWidgetItem(ui->customerListWidget);
             temp->setText(QString::fromStdString(up[i].getUsername()));
@@ -106,7 +105,6 @@ void Admin_Page::update_list()
 void Admin_Page::on_showBtn_clicked()
 {
 
-    ui->showInfo->clear();
     if (ui->customerListWidget->currentItem()){
         cust = ui->customerListWidget->currentItem();
         string userName = cust->text().toStdString();
@@ -114,25 +112,21 @@ void Admin_Page::on_showBtn_clicked()
         int flag = 0;
         for (int i=0  ; i<up.size(); i++){
             if(up[i].getUsername() == userName){
-                n += "Username : "+up[i].getUsername()+'\n';
-                n += "First name: "+up[i].getFname()+'\n';
-                n += "Last name : "+up[i].getLname()+'\n';
-                n += "Gender : "+up[i].getGender()+'\n';
-                n += "Email : "+up[i].getEmali()+'\n';
-                n += "Money : "+up[i].getMoney()+"$\n";
-                n += "City : "+up[i].getCity()+'\n';
-                n += "Address : "+up[i].getAdrress()+'\n';
-                n += "ID : "+to_string(up[i].getId())+'\n';
+                n += up[i].getFname()+'\n';
+                n += up[i].getLname()+'\n';
+                n += up[i].getUsername()+'\n';
+                n += up[i].getEmali()+'\n';
+                n += up[i].getMoney()+'\n';
+                n += up[i].getCity()+'\n';
+                n += up[i].getAdrress()+'\n';
                 flag = 1;
             }
             if (flag == 1)
-            {
                 ui->showInfo->setText(QString::fromStdString(n));
-                flag++;
-            }
 
         }
     }
+
     if (ui->clientListWidget->currentItem()){
         clie = ui->clientListWidget->currentItem();
         string userName = clie->text().toStdString();
@@ -140,26 +134,19 @@ void Admin_Page::on_showBtn_clicked()
         int flag = 0;
         for (int i=0  ; i<up.size(); i++){
             if(up[i].getUsername() == userName){
-                n += "Username : "+up[i].getUsername()+'\n';
-                n += "First name: "+up[i].getFname()+'\n';
-                n += "Last name : "+up[i].getLname()+'\n';
-                n += "Gender : "+up[i].getGender()+'\n';
-                n += "Email : "+up[i].getEmali()+'\n';
-                n += "Money : "+up[i].getMoney()+"$\n";
-                n += "City : "+up[i].getCity()+'\n';
-                n += "Address : "+up[i].getAdrress()+'\n';
-                n += "ID : "+to_string(up[i].getId())+'\n';
+                n += up[i].getFname()+'\n';
+                n += up[i].getLname()+'\n';
+                n += up[i].getUsername()+'\n';
+                n += up[i].getEmali()+'\n';
+                n += up[i].getMoney()+'\n';
+                n += up[i].getCity()+'\n';
+                n += up[i].getAdrress()+'\n';
                 flag = 1;
             }
             if (flag == 1)
-            {
                 ui->showInfo->setText(QString::fromStdString(n));
-                flag++;
-            }
         }
     }
-
-on_refreshBtn_clicked();
 }
 
 
