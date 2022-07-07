@@ -2,6 +2,7 @@
 #include "ui_admin_page.h"
 #include "userprofile.h"
 #include "QListWidget"
+#include "QMessageBox"
 #include <string>
 #include <fstream>
 #include <vector>
@@ -166,6 +167,33 @@ on_refreshBtn_clicked();
 
 void Admin_Page::on_removeBtn_clicked()
 {
+    if (ui->customerListWidget->currentItem()){
+        cust = ui->customerListWidget->currentItem();
 
+    string userName = cust->text().toStdString();
+    for (int i = 0; i < up.size(); i++){
+        if (up[i].getUsername() == userName){
+            QMessageBox message;
+            message.critical(this, "note", "deleted succesfully!");
+            message.setFixedSize(500, 200);
+            up[i].getRole() = "deleted";
+        }
+    }
+
+
+    }
+    if (ui->clientListWidget->currentItem()){
+        clie = ui->clientListWidget->currentItem();
+
+        string userName = cust->text().toStdString();
+        for (int i = 0; i < up.size(); i++){
+            if (up[i].getUsername() == userName){
+                QMessageBox message;
+                message.critical(this, "note", "deleted succesfully!");
+                message.setFixedSize(500, 200);
+                up[i].getRole() = "deleted";
+            }
+        }
+    }
 }
 
