@@ -37,16 +37,9 @@ void SignInForm::on_loginBtn_clicked()
     up.clear();
     update_vector();
     bool empty=true;
-
-    string usernameString=ui->usernameLineEdit->text().toStdString();
-    string usernameStr="";
-    for (int i = 0; i < usernameString.length(); i++){
-        usernameStr += tolower(usernameString[i]);
-    }
-
     for(int i=0;i<up.size();++i)
     {
-        if(usernameStr==up[i].getUsername())
+        if(ui->usernameLineEdit->text().toStdString()==up[i].getUsername())
         {
             if(ui->passwordLineEdit->text().toStdString()==up[i].getPassword())
             {
@@ -54,7 +47,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     coPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
 
                 }
 
@@ -62,7 +55,7 @@ void SignInForm::on_loginBtn_clicked()
                 {
                     empty=false;
                     clPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),up[i].getId());
                 }
 
 
@@ -89,12 +82,10 @@ void SignInForm::update_vector()
 {
 
     UserProfile us;
-    string tmp[11];
+    string tmp[10];
     int counter{0};
     int idCounter{1};
-
     ifstream inDataBase("database.txt",ios_base::in);
-
 
     if(inDataBase)
     {
@@ -105,7 +96,7 @@ void SignInForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],tmp[9],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
@@ -122,9 +113,7 @@ void SignInForm::update_vector()
     }
     else
     {
-
         ofstream outDataBase("database.txt",ios_base::out);
-
         outDataBase.close();
     }
 }
@@ -140,3 +129,4 @@ void SignInForm::on_forrgotBtn_clicked()
 {
     forget_form->show();
 }
+

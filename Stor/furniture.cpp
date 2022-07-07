@@ -34,4 +34,3 @@ string Furniture::getuse() {
 string Furniture::getabout() {
     return about;
 }
-

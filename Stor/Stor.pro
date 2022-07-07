@@ -39,7 +39,6 @@ SOURCES += \
     signinform.cpp \
     userprofile.cpp \
     admin_page.cpp \
-    setstorname.cpp \
     signin_admin.cpp \
     mobile.cpp \
     signupform.cpp \
@@ -68,7 +67,6 @@ HEADERS += \
     forgetform.h \
     furniture.h \
     language.h \
-    setstorname.h \
     english.h \
     persian.h \
     good.h \
@@ -105,7 +103,6 @@ FORMS += \
     profilesetting.ui \
     shopview.ui \
     signinform.ui \
-    setstorname.ui \
     signupform.ui \
     admin_page.ui \
     signin_admin.ui

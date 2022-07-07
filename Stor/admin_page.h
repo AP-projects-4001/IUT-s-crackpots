@@ -1,7 +1,6 @@
 #ifndef ADMIN_PAGE_H
 #define ADMIN_PAGE_H
 #include "userprofile.h"
-#include "QListWidgetItem"
 #include <QDialog>
 
 namespace Ui {
@@ -16,15 +15,6 @@ private slots:
     void update_vector();
 
 
-    void on_refreshBtn_clicked();
-
-    void update_list();
-
-    void on_showBtn_clicked();
-
-
-    void on_removeBtn_clicked();
-
 public:
     explicit Admin_Page(QWidget *parent = nullptr);
     ~Admin_Page();
@@ -32,10 +22,6 @@ public:
 private:
     Ui::Admin_Page *ui;
     vector<UserProfile> up;
-    QListWidgetItem *cust;
-    QListWidgetItem *clie;
-
-    static int flag;
 };
 
 #endif // ADMIN_PAGE_H

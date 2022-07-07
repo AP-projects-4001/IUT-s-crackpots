@@ -22,7 +22,7 @@ public:
 
 signals:
     void changeMode(bool b);
-    void sendUserInformation(QString us,QString m, QString g, int id);
+    void sendUserInformation(QString us,QString m,int id);
 
 private slots:
 

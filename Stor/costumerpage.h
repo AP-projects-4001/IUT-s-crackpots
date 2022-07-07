@@ -15,18 +15,16 @@ class costumerPage : public QMainWindow , public UserProfile
 
 signals:
 
-    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString g,QString c,QString e,QString a,int id);
+    void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString c,QString e,QString a,int id);
 
 private slots:
 
-    void setInformation(QString us,QString m,QString g,int i);
+    void setInformation(QString us,QString m,int i);
 
 
     void on_profileBtn_clicked();
 
     void on_addMoney_clicked();
-
-
 
 public:
     explicit costumerPage(QWidget *parent = nullptr);
