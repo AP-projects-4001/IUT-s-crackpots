@@ -10,11 +10,17 @@ class Book : public good
    std::string jeldType;
    std::string awards;
    std::string language;
-   std::string about;
+   static int idCounter;
+
 public:
     Book();
-    void setData(int id, std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
-                std::string jeldType, std::string awards, std::string language, std::string about);
+    void setData(std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
+                std::string jeldType, std::string awards, std::string language, int user_id);
+    std::string getseriesType();
+    std::string getjeldType();
+    std::string getawards();
+    std::string getlanguage();
+    std::string getabout();
 
 };
 

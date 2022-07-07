@@ -146,7 +146,7 @@
     <string>About:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="laptop_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -156,7 +156,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="price_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -166,17 +166,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>120</y>
-     <width>191</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="process_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -186,7 +176,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="limit_comboBox">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -221,7 +211,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="memory_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -231,7 +221,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="graphic_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -241,7 +231,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_7">
+  <widget class="QLineEdit" name="screen_lineEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -251,13 +241,23 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="about_textEdit">
    <property name="geometry">
     <rect>
      <x>210</x>
      <y>303</y>
      <width>191</width>
      <height>81</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="number_spinBox">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>120</y>
+     <width>191</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

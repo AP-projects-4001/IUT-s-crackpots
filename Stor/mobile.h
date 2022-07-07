@@ -10,11 +10,17 @@ class Mobile : public good
     std::string screenTech;
     std::string networks;
     int rezoloutionMPx;
-    enum operatingSystem { android, iOS, WindowsPhone };
+    std::string operatingSystem;
+    static int idCounter;
 public:
     Mobile();
-    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
-    enum operatingSystem);
+    void setData(std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
+    std::string operatingSystem, int user_id);
+    int getmemoryGB();
+    std::string getscreenTech();
+    std::string getnetworks();
+    int getrezoloutionMPx();
+    std::string getoperatingSystem();
 };
 
 #endif // MOBILE_H

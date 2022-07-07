@@ -9,9 +9,8 @@ Car::Car()
 
 }
 
-void Car::setData(int id, string name, int price, int remainingNum, int boughtNum, string steeringWheelType, string feulType ,
-                    string carClass, int members) {
-    this->id = id;
+void Car::setData(string name, int price, int remainingNum, int boughtNum, string steeringWheelType, string feulType ,
+                    string carClass, int user_id) {
     this->name = name;
     this->price = price;
     this->remainingNum = remainingNum;
@@ -19,5 +18,19 @@ void Car::setData(int id, string name, int price, int remainingNum, int boughtNu
     this->steeringWheelType = steeringWheelType;
     this->feulType = feulType;
     this->carClass = carClass;
-    this->members = members;
+    this->user_id = user_id;
+    this->id = idCounter;
+    idCounter++;
+}
+
+std::string Car::getsteeringWheelType() {
+    return steeringWheelType;
+}
+
+std::string Car::getfeulType() {
+    return feulType;
+}
+
+std::string Car::getcarClass() {
+    return carClass;
 }

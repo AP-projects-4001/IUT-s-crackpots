@@ -29,11 +29,13 @@ SOURCES += \
     furniture.cpp \
     good.cpp \
     health.cpp \
+    language.cpp \
+    english.cpp \
+    persian.cpp \
     laptop.cpp \
     main.cpp \
     mainwindow.cpp \
     profilesetting.cpp \
-    setstorname.cpp \
     signinform.cpp \
     userprofile.cpp \
     admin_page.cpp \
@@ -64,12 +66,14 @@ HEADERS += \
     cloth.h \
     forgetform.h \
     furniture.h \
+    language.h \
+    english.h \
+    persian.h \
     good.h \
     health.h \
     laptop.h \
     mainwindow.h \
     profilesetting.h \
-    setstorname.h \
     shopview.h \
     signinform.h \
     signupform.h \
@@ -97,7 +101,6 @@ FORMS += \
     forgetform.ui \
     mainwindow.ui \
     profilesetting.ui \
-    setstorname.ui \
     shopview.ui \
     signinform.ui \
     signupform.ui \
@@ -109,6 +112,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    img.qrc \
-    img.qrc
+RESOURCES +=
