@@ -22,7 +22,7 @@ public:
 
 signals:
     void changeMode(bool b);
-    void sendUserInformation(QString us,QString m,int id);
+    void sendUserInformation(QString us,QString m,QString g,int id);
 
 private slots:
 
@@ -34,6 +34,8 @@ private slots:
     void update_vector();
 
     void on_forrgotBtn_clicked();
+
+    void on_returnSignInBtn_clicked();
 
 private:
     Ui::SignInForm *ui;

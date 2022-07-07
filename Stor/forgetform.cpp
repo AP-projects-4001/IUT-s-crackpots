@@ -2,6 +2,7 @@
 #include "ui_forgetform.h"
 #include "fstream"
 #include "string"
+#include "QMessageBox"
 using namespace std;
 
 forgetForm::forgetForm(QWidget *parent) :
@@ -18,6 +19,7 @@ forgetForm::~forgetForm()
 
 void forgetForm::on_findBtn_clicked()
 {
+    int flag=0;
     up.clear();
     update_vector();
 
@@ -26,9 +28,14 @@ void forgetForm::on_findBtn_clicked()
         if(up[i].getEmali()==ui->emialLineEdit->text().toStdString())
         {
             ui->passwordLineEdit->setText(QString::fromStdString(up[i].getPassword()));
+            flag=1;
         }
     }
 
+    if(flag==0)
+    {
+        QMessageBox::warning(this,"...","Invalid Email!");
+    }
 
 }
 
@@ -49,7 +56,7 @@ void forgetForm::update_vector()
 
             if(tmp[counter]=="#####")
             {
-                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],idCounter);
+                us.setDataSpecial(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],tmp[9],idCounter);
                 up.push_back(us);
                 idCounter++;
                 counter=0;
@@ -69,5 +76,11 @@ void forgetForm::update_vector()
         ofstream outDataBase("database.txt",ios_base::out);
         outDataBase.close();
     }
+}
+
+
+void forgetForm::on_closeBtn_clicked()
+{
+    close();
 }
 

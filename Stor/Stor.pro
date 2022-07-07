@@ -44,6 +44,7 @@ SOURCES += \
     signupform.cpp \
     supermarket.cpp \
     shopview.cpp \
+    setstorname.cpp \
     toy.cpp
 
 
@@ -83,7 +84,8 @@ HEADERS += \
     signinform.h \
     supermarket.h \
     toy.h \
-    signin_admin.h
+    signin_admin.h \
+    setstorname.h
 
 FORMS += \
     clientpage.ui \
@@ -105,6 +107,7 @@ FORMS += \
     signinform.ui \
     signupform.ui \
     admin_page.ui \
+    setstorname.ui \
     signin_admin.ui
 
 # Default rules for deployment.
@@ -112,4 +115,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES +=
+RESOURCES += \
+    img.qrc

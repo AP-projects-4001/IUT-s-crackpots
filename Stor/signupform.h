@@ -26,6 +26,8 @@ private slots:
     void update_vector();
 
 
+    void on_returnBtn_clicked();
+
 private:
     Ui::signUpForm *ui;
     vector<UserProfile> UP;

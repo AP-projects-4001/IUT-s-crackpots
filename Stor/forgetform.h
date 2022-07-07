@@ -20,6 +20,8 @@ private slots:
     void on_findBtn_clicked();
     void update_vector();
 
+    void on_closeBtn_clicked();
+
 private:
     Ui::forgetForm *ui;
     vector<UserProfile> up;
