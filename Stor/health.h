@@ -9,10 +9,14 @@ class Health : public good
     std::string use;
     std::string deprecationTime;
     std::string about;
+    static int idCounter;
 public:
     Health();
-    void insert(int id, std::string name, int price, int remainingNum, int boughtNum, std::string use,
-    std::string deprecationTime, std::string about);
+    void setData(std::string name, int price, int remainingNum, int boughtNum, std::string use,
+    std::string deprecationTime, std::string about, int user_id);
+    std::string getuse();
+    std::string getdeprecationTime();
+    std::string getabout();
 };
 
 #endif // HEALTH_H

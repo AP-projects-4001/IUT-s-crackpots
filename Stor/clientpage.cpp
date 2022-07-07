@@ -115,5 +115,3 @@ void clientPage::setName(QString n)
 }
 
 
-
-

@@ -94,7 +94,7 @@
     <string>About:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="good_lineEdit">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -104,7 +104,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="price_lineEdit">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -114,17 +114,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>110</y>
-     <width>211</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="use_lineEdit">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -134,13 +124,23 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="about_textEdit">
    <property name="geometry">
     <rect>
      <x>140</x>
      <y>170</y>
      <width>211</width>
      <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="number_spinBox">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>110</y>
+     <width>211</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

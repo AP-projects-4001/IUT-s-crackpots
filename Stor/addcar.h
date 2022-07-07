@@ -2,6 +2,7 @@
 #define ADDCAR_H
 
 #include <QDialog>
+#include "car.h"
 
 namespace Ui {
 class addCar;
@@ -15,8 +16,15 @@ public:
     explicit addCar(QWidget *parent = nullptr);
     ~addCar();
 
+private slots:
+    void on_buttonBox_accepted();
+
+    void updateVector();
+
 private:
     Ui::addCar *ui;
+    std::vector<Car> cars;
+    static int flag;
 };
 
 #endif // ADDCAR_H

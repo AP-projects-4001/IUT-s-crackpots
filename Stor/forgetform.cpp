@@ -77,4 +77,3 @@ void forgetForm::update_vector()
         outDataBase.close();
     }
 }
-

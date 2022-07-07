@@ -196,4 +196,3 @@ void Admin_Page::on_removeBtn_clicked()
         }
     }
 }
-

@@ -91,7 +91,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Uses:</string>
+    <string>Use:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -107,7 +107,7 @@
     <string>About:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="furniture_lineEdit">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -117,7 +117,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="price_lineEdit">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -127,27 +127,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>90</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>130</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="use_lineEdit">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -157,13 +137,33 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="about_textEdit">
    <property name="geometry">
     <rect>
      <x>200</x>
      <y>220</y>
      <width>201</width>
      <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="number_spinBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>90</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="garantee_lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>130</y>
+     <width>201</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

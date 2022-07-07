@@ -136,7 +136,3 @@ void costumerPage::on_addMoney_clicked()
     outDataBase<<info;
     outDataBase.close();
 }
-
-
-
-

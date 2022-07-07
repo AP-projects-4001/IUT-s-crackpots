@@ -2,6 +2,9 @@
 #define ADDBOOK_H
 
 #include <QDialog>
+#include "book.h"
+#include "vector"
+#include "QMessageBox"
 
 namespace Ui {
 class addBook;
@@ -17,9 +20,15 @@ public:
 
 
 
+private slots:
+    void on_buttonBox_accepted();
+
+    void updateVector();
+
 private:
     Ui::addBook *ui;
-
+    std::vector<Book> books;
+    static int flag;
 };
 
 #endif // ADDBOOK_H
