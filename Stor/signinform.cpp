@@ -48,24 +48,32 @@ void SignInForm::on_loginBtn_clicked()
     {
         if(usernameStr==up[i].getUsername())
         {
-            if(ui->passwordLineEdit->text().toStdString()==up[i].getPassword())
+            if(up[i].getRole()=="Costumer" || up[i].getRole()=="Client")
             {
-                if(up[i].getRole()=="Costumer")
+                if(ui->passwordLineEdit->text().toStdString()==up[i].getPassword())
                 {
-                    empty=false;
-                    coPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+                    if(up[i].getRole()=="Costumer")
+                    {
+                        empty=false;
+                        coPage->show();
+                        emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+
+                    }
+
+                    else if(up[i].getRole()=="Client")
+                    {
+                        empty=false;
+                        clPage->show();
+                        emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+                    }
+
 
                 }
-
-                else if(up[i].getRole()=="Client")
-                {
-                    empty=false;
-                    clPage->show();
-                    emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
-                }
-
-
+            }
+            else
+            {
+                QMessageBox::critical(this,"deleted account","your account is deleted by you or admin");
+                empty=false;
             }
         }
     }

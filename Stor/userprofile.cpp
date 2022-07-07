@@ -99,4 +99,9 @@ string UserProfile::getGender()
     return gender;
 }
 
+void UserProfile::setRole(string x)
+{
+    role=x;
+}
+
 

@@ -36,6 +36,7 @@ public:
     string getMoney();
     string getCity();
     string getGender();
+    void setRole(string x);
 
 };
 

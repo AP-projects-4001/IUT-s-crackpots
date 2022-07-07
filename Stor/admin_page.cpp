@@ -7,6 +7,7 @@
 #include <fstream>
 #include <vector>
 
+using namespace std;
 int Admin_Page::flag = 0;
 
 Admin_Page::Admin_Page(QWidget *parent) :
@@ -90,12 +91,31 @@ void Admin_Page::update_list()
             QListWidgetItem *temp = new QListWidgetItem(ui->customerListWidget);
             temp->setText(QString::fromStdString(up[i].getUsername()));
             ui->customerListWidget->addItem(temp);
+
         }
         if(up[i].getRole() == "Client"){
             QListWidgetItem *temp = new QListWidgetItem(ui->clientListWidget);
             temp->setText(QString::fromStdString(up[i].getUsername()));
             ui->clientListWidget->addItem(temp);
+
+
         }
+        if(up[i].getRole()=="cldel")
+        {
+            QListWidgetItem *temp = new QListWidgetItem(ui->clientListWidget);
+            temp->setText(QString::fromStdString(up[i].getUsername()));
+            ui->clientListWidget->addItem(temp);
+            temp->setBackground(Qt::red);
+        }
+
+        if(up[i].getRole()=="cudel")
+        {
+            QListWidgetItem *temp = new QListWidgetItem(ui->customerListWidget);
+            temp->setText(QString::fromStdString(up[i].getUsername()));
+            ui->customerListWidget->addItem(temp);
+            temp->setBackground(Qt::red);
+        }
+
     }
     if (flag == 0){
         cust = new QListWidgetItem(ui->customerListWidget);
@@ -114,7 +134,7 @@ void Admin_Page::on_showBtn_clicked()
         string userName = cust->text().toStdString();
         string n = "";
         int flag = 0;
-        for (int i=0  ; i<up.size(); i++){
+        for (unsigned int i=0  ; i<up.size(); i++){
             if(up[i].getUsername() == userName){
                 n += "Username : "+up[i].getUsername()+'\n';
                 n += "First name: "+up[i].getFname()+'\n';
@@ -140,7 +160,7 @@ void Admin_Page::on_showBtn_clicked()
         string userName = clie->text().toStdString();
         string n = "";
         int flag = 0;
-        for (int i=0  ; i<up.size(); i++){
+        for (unsigned int i=0  ; i<up.size(); i++){
             if(up[i].getUsername() == userName){
                 n += "Username : "+up[i].getUsername()+'\n';
                 n += "First name: "+up[i].getFname()+'\n';
@@ -168,16 +188,17 @@ on_refreshBtn_clicked();
 
 void Admin_Page::on_removeBtn_clicked()
 {
+    ofstream outDataBase("database.txt",ios_base::out);
+    string tmp;
     if (ui->customerListWidget->currentItem()){
         cust = ui->customerListWidget->currentItem();
 
     string userName = cust->text().toStdString();
-    for (int i = 0; i < up.size(); i++){
+    for (unsigned int i = 0; i < up.size(); i++){
         if (up[i].getUsername() == userName){
-            QMessageBox message;
-            message.critical(this, "note", "deleted succesfully!");
-            message.setFixedSize(500, 200);
-            up[i].getRole() = "deleted";
+            up[i].setRole("cudel");
+            cust->setBackground(QColor(Qt::red));
+            break;
         }
     }
 
@@ -186,26 +207,42 @@ void Admin_Page::on_removeBtn_clicked()
     if (ui->clientListWidget->currentItem()){
         clie = ui->clientListWidget->currentItem();
 
-        string userName = cust->text().toStdString();
-        for (int i = 0; i < up.size(); i++){
+        string userName = clie->text().toStdString();
+        for (unsigned int i = 0; i < up.size(); i++){
             if (up[i].getUsername() == userName){
-                QMessageBox message;
-                message.critical(this, "note", "deleted succesfully!");
-                message.setFixedSize(500, 200);
-                up[i].getRole() = "deleted";
+                up[i].setRole("cldel");
+                clie->setBackground(QColor(Qt::red));
             }
         }
     }
+
+    for(unsigned int i=0;i<up.size();++i)
+    {
+        outDataBase<<up[i].getUsername()<<'\n';
+        outDataBase<<up[i].getPassword()<<'\n';
+        outDataBase<<up[i].getFname()<<'\n';
+        outDataBase<<up[i].getLname()<<'\n';
+        outDataBase<<up[i].getGender()<<'\n';
+        outDataBase<<up[i].getCity()<<'\n';
+        outDataBase<<up[i].getEmali()<<'\n';
+        outDataBase<<up[i].getAdrress()<<'\n';
+        outDataBase<<up[i].getRole()<<'\n';
+        outDataBase<<up[i].getMoney()<<'\n';
+        outDataBase<<up[i].getId()<<'\n';
+        outDataBase<<"#####\n";
+
+    }
+    outDataBase.close();
 }
 
 
 void Admin_Page::on_changeBtn_clicked()
 {
-    profile->show();
+
     if(ui->clientListWidget->currentItem())
     {
         clie=ui->clientListWidget->currentItem();
-        for(int i=0;i<up.size();++i)
+        for(unsigned int i=0;i<up.size();++i)
         {
             if(up[i].getUsername()==clie->text().toStdString())
             {
@@ -216,7 +253,7 @@ void Admin_Page::on_changeBtn_clicked()
     if(ui->customerListWidget->currentItem())
     {
         cust=ui->customerListWidget->currentItem();
-        for(int i=0;i<up.size();++i)
+        for(unsigned int i=0;i<up.size();++i)
         {
             if(up[i].getUsername()==cust->text().toStdString())
             {
@@ -224,5 +261,6 @@ void Admin_Page::on_changeBtn_clicked()
             }
         }
     }
+    profile->show();
 }
 
