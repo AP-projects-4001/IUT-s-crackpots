@@ -170,22 +170,29 @@ void Admin_Page::on_removeBtn_clicked()
     if (ui->customerListWidget->currentItem()){
         cust = ui->customerListWidget->currentItem();
 
-        QMessageBox massage;
-        massage.critical(this, "Error", "are you certain deleting this member!?");
-        massage.setFixedSize(500, 200);
-        if (massage.Ok){
-            delete(cust);
+    string userName = cust->text().toStdString();
+    for (int i = 0; i < up.size(); i++){
+        if (up[i].getUsername() == userName){
+            QMessageBox message;
+            message.critical(this, "note", "deleted succesfully!");
+            message.setFixedSize(500, 200);
+            up[i].getRole() = "deleted";
         }
+    }
+
 
     }
     if (ui->clientListWidget->currentItem()){
         clie = ui->clientListWidget->currentItem();
 
-        QMessageBox massage;
-        massage.critical(this, "Error", "are you certain deleting this member!?");
-        massage.setFixedSize(500, 200);
-        if (massage.isEnabled()){
-            delete(cust);
+        string userName = cust->text().toStdString();
+        for (int i = 0; i < up.size(); i++){
+            if (up[i].getUsername() == userName){
+                QMessageBox message;
+                message.critical(this, "note", "deleted succesfully!");
+                message.setFixedSize(500, 200);
+                up[i].getRole() = "deleted";
+            }
         }
     }
 }
