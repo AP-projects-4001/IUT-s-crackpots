@@ -24,10 +24,13 @@ private slots:
 
     void updateVector();
 
+    void setId(int i);
+
 private:
     Ui::addSupermarket *ui;
     std::vector<Supermarket> supers;
     static int flag;
+    int id;
 };
 
 #endif // ADDSUPERMARKET_H

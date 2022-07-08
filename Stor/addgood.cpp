@@ -24,6 +24,7 @@ addGood::addGood(QWidget *parent) :
     ui(new Ui::addGood)
 {
     ui->setupUi(this);
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addGood::~addGood()
@@ -34,32 +35,53 @@ addGood::~addGood()
 void addGood::on_buttonBox_accepted()
 {
     if (ui->book_->isChecked()) {
-        addBook *d = new addBook();
+        addBook *d = new addBook(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->car_->isChecked()) {
-        addCar *d = new addCar();
+        addCar *d = new addCar(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->cloth_->isChecked()) {
-        addCloth *d = new addCloth();
+        addCloth *d = new addCloth(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->furniture_->isChecked()) {
-        addFurniture *d = new addFurniture();
+        addFurniture *d = new addFurniture(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->health_->isChecked()) {
-        addHealth *d = new addHealth();
+        addHealth *d = new addHealth(this);
         d->show();
+        emit sendId(id);
     } else if (ui->laptop_->isChecked()) {
-        addLaptop *d = new addLaptop();
+        addLaptop *d = new addLaptop(this);
         d->show();
+        emit sendId(id);
     } else if (ui->mobile_->isChecked()) {
-        addMobile *d = new addMobile();
+        addMobile *d = new addMobile(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->supermarket_->isChecked()) {
-        addSupermarket *d = new addSupermarket();
+        addSupermarket *d = new addSupermarket(this);
+        emit sendId(id);
         d->show();
+
     } else if (ui->toy_->isChecked()) {
-        addToy *d = new addToy();
+        addToy *d = new addToy(this);
+        emit sendId(id);
         d->show();
+
     }
+}
+
+void addGood::setId(int i)
+{
+    id=i;
 }
 

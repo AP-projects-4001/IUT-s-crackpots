@@ -11,8 +11,10 @@ class Supermarket : public good
     static int idCounter;
 public:
     Supermarket();
-    void setData(std::string name, int price, int remainingNum, int boughtNum, std::string use,
-    std::string about, int user_id);
+    void setData(int user_id,std::string name, int price, int remainingNum, int boughtNum, std::string use,
+    std::string about);
+    void setSpecialData(int user_id ,std::string name, int price, int remainingNum, int boughtNum, std::string use,
+    std::string about,int id );
     std::string getuse();
     std::string getabout();
 };

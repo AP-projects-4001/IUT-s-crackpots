@@ -16,6 +16,7 @@ addCloth::addCloth(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addCloth::~addCloth()
@@ -35,7 +36,7 @@ void addCloth::on_buttonBox_accepted()
             Cloth newCloth;
             newCloth.setData(ui->cloth_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(),
                              ui->number_spinBox->value(), 0, ui->collar_comboBox->currentText().toStdString(), ui->sleeves_comboBox->currentText().toStdString(),
-                             ui->uses_textEdit->toPlainText().toStdString(), ui->tarh_lineEdit->text().toStdString(), 0);
+                             ui->uses_textEdit->toPlainText().toStdString(), ui->tarh_lineEdit->text().toStdString(), id);
             ofstream outDatabase("clothes.txt", ios_base::app);
             outDatabase << newCloth.getId() << '\n';
             outDatabase << newCloth.getName() << '\n';
@@ -94,5 +95,10 @@ void addCloth::updateVector() {
 
 
     }
+}
+
+void addCloth::setId(int i)
+{
+    id=i;
 }
 

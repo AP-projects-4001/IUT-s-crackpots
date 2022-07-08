@@ -24,10 +24,13 @@ private slots:
 
     void updateVector();
 
+    void setId(int i);
+
 private:
     Ui::addLaptop *ui;
     std::vector<Laptop> laptops;
     static int flag;
+    int id;
 };
 
 #endif // ADDLAPTOP_H

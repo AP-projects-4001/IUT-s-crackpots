@@ -13,8 +13,10 @@ class Car : public good
 
 public:
     Car();
-    void setData(std::string name, int price, int remainingNum, int boughtNum, std::string steeringWheelType, std::string feulType ,
-    std::string carClass, int user_id);
+    void setData(int user_id,std::string name, int price, int remainingNum, int boughtNum, std::string steeringWheelType, std::string feulType ,
+    std::string carClass);
+    void setSpecialData(int user_id,std::string name, int price, int remainingNum, int boughtNum, std::string steeringWheelType, std::string feulType ,
+    std::string carClass,int id);
     std::string getsteeringWheelType();
     std::string getfeulType();
     std::string getcarClass();

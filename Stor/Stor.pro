@@ -28,6 +28,7 @@ SOURCES += \
     forgetform.cpp \
     furniture.cpp \
     good.cpp \
+    goodsandid.cpp \
     health.cpp \
     language.cpp \
     english.cpp \
@@ -67,6 +68,7 @@ HEADERS += \
     cloth.h \
     forgetform.h \
     furniture.h \
+    goodsandid.h \
     language.h \
     english.h \
     persian.h \

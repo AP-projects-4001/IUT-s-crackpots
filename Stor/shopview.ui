@@ -20,8 +20,8 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QListWidget" name="listWidget"/>
-      <widget class="QWidget" name="">
+      <widget class="QListWidget" name="goodsListWidget"/>
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -56,6 +56,13 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="refresh">
+          <property name="text">
+           <string>refresh</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="addBtn">

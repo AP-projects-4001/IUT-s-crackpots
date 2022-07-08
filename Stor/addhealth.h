@@ -24,10 +24,13 @@ private slots:
 
     void updateVector();
 
+    void setId(int i);
+
 private:
     Ui::addHealth *ui;
     std::vector<Health> healthProducts;
     static int flag;
+    int id;
 };
 
 #endif // ADDHEALTH_H

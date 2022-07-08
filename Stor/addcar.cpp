@@ -20,6 +20,7 @@ addCar::addCar(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 
@@ -36,12 +37,12 @@ void addCar::on_buttonBox_accepted()
     } else {
         try {
             Car newCar;
-            newCar.setData(ui->name_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(),
+            newCar.setData(id,ui->name_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(),
                            ui->number_spinBox->value(), 0, ui->steering_comboBox->currentText().toStdString(),
-                           ui->feul_comboBox->currentText().toStdString(), ui->class_comboBox->currentText().toStdString(), 0);
+                           ui->feul_comboBox->currentText().toStdString(), ui->class_comboBox->currentText().toStdString());
 
-            ofstream outDatabase("/Users/parsakhodadadi/Desktop/data/cars.txt", ios_base::app);
-            outDatabase << newCar.getId() << '\n';
+            ofstream outDatabase("car.txt", ios_base::app);
+            outDatabase << newCar.getUsId() << '\n';
             outDatabase << newCar.getName() << '\n';
             outDatabase << newCar.getPrice() << '\n';
             outDatabase << newCar.getRemainingNum() << '\n';
@@ -49,8 +50,9 @@ void addCar::on_buttonBox_accepted()
             outDatabase << newCar.getsteeringWheelType() << '\n';
             outDatabase << newCar.getfeulType() << '\n';
             outDatabase << newCar.getcarClass() << '\n';
-            outDatabase << newCar.getUsId() << '\n';
-            outDatabase << "######\n" ;
+            outDatabase << newCar.getId() << '\n';
+
+            outDatabase << "#####\n" ;
 
             QMessageBox::information(this, "addcar", "Car added successfully.");
 
@@ -77,14 +79,14 @@ void addCar::updateVector() {
     Car car;
     string tmp[10];
     int counter{0};
-    ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/cars.txt", ios_base::in);
+    ifstream inDataBase("car.txt", ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
 
         if(tmp[counter]=="#####")
         {
 
-            car.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],stoi(tmp[7]));
+            car.setData(stoi(tmp[0]),(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7]);
 
             cars.push_back(car);
             counter=0;
@@ -94,5 +96,9 @@ void addCar::updateVector() {
             counter++;
 
     }
+}
+void addCar::setId(int i)
+{
+    id=i;
 }
 

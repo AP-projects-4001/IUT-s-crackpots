@@ -16,6 +16,7 @@ addMobile::addMobile(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addMobile::~addMobile()
@@ -32,6 +33,7 @@ void addMobile::on_buttonBox_accepted()
         try {
             Mobile newMobile;
             newMobile.setData(
+                        id,
                         ui->mobile_lineEdit->text().toStdString(),
                         ui->price_lineEdit->text().toInt(),
                         ui->number_spinBox->value(),
@@ -40,12 +42,12 @@ void addMobile::on_buttonBox_accepted()
                         ui->screenTech_lineEdit->text().toStdString(),
                         ui->networks_lineEdit->text().toStdString(),
                         ui->rezoloution_lineEdit->text().toInt(),
-                        ui->operating_comboBox->currentText().toStdString(),
-                        0
+                        ui->operating_comboBox->currentText().toStdString()
+
             );
 
             ofstream outDatabase("mobiles.txt", ios_base::app);
-            outDatabase << newMobile.getId() << '\n';
+            outDatabase << newMobile.getUsId() << '\n';
             outDatabase << newMobile.getName() << '\n';
             outDatabase << newMobile.getPrice() << '\n';
             outDatabase << newMobile.getRemainingNum() << '\n';
@@ -55,7 +57,8 @@ void addMobile::on_buttonBox_accepted()
             outDatabase << newMobile.getnetworks() << '\n';
             outDatabase << newMobile.getrezoloutionMPx() << '\n';
             outDatabase << newMobile.getoperatingSystem() << '\n';
-            outDatabase << newMobile.getUsId() << '\n';
+            outDatabase << newMobile.getId() << '\n';
+
             outDatabase << "#####\n";
 
             QMessageBox::information(this, "addmobile", "Mobile added successfully.");
@@ -91,8 +94,8 @@ void addMobile::updateVector() {
 
         if(tmp[counter]=="#####")
         {
-            mobile.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],stoi(tmp[7]),tmp[8],
-                    stoi(tmp[9]));
+            mobile.setData(stoi(tmp[0]),tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),stoi(tmp[5]),tmp[6],tmp[7],stoi(tmp[8]),
+                    tmp[9]);
 
             mobiles.push_back(mobile);
             counter=0;
@@ -102,5 +105,10 @@ void addMobile::updateVector() {
             counter++;
 
     }
+}
+
+void addMobile::setId(int i)
+{
+    id=i;
 }
 

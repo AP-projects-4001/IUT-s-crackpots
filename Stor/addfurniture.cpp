@@ -16,6 +16,7 @@ addFurniture::addFurniture(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 
 }
 
@@ -35,7 +36,7 @@ void addFurniture::on_buttonBox_accepted()
         try {
             Furniture newFurniture;
             newFurniture.setData(ui->furniture_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(), ui->number_spinBox->value()
-                                 , 0, ui->garantee_lineEdit->text().toStdString(), ui->use_lineEdit->text().toStdString(), ui->about_textEdit->toPlainText().toStdString(), 0);
+                                 , 0, ui->garantee_lineEdit->text().toStdString(), ui->use_lineEdit->text().toStdString(), ui->about_textEdit->toPlainText().toStdString(),id);
 
             ofstream outDatabase("furnitures.txt", ios_base::app);
             outDatabase << newFurniture.getId() << '\n';
@@ -93,6 +94,11 @@ void addFurniture::updateVector() {
 
 
     }
+}
+
+void addFurniture::setId(int i)
+{
+    id=i;
 }
 
 

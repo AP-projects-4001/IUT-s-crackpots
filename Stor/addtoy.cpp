@@ -16,6 +16,7 @@ addToy::addToy(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addToy::~addToy()
@@ -38,7 +39,7 @@ void addToy::on_buttonBox_accepted()
                         ui->type_comboBox->currentText().toStdString(),
                         ui->use_lineEdit->text().toStdString(),
                         ui->about_textEdit->toPlainText().toStdString(),
-                        0
+                        id
             );
 
             ofstream outDatabase("toys.txt", ios_base::app);
@@ -97,5 +98,9 @@ void addToy::updateVector() {
 
 
     }
+}
+void addToy::setId(int i)
+{
+    id=i;
 }
 

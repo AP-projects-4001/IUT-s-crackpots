@@ -14,8 +14,10 @@ class Mobile : public good
     static int idCounter;
 public:
     Mobile();
-    void setData(std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
-    std::string operatingSystem, int user_id);
+    void setData(int user_id,std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
+    std::string operatingSystem);
+    void setSpecialData(int user_id ,std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx,
+    std::string operatingSystem,int id );
     int getmemoryGB();
     std::string getscreenTech();
     std::string getnetworks();

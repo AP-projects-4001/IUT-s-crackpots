@@ -14,8 +14,11 @@ class Book : public good
 
 public:
     Book();
-    void setData(std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
-                std::string jeldType, std::string awards, std::string language, int user_id);
+    void setData(int user_id,std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
+                std::string jeldType, std::string awards, std::string language);
+    void setSpecialData(int user_id,std::string name, int price, int remainingNum, int boughtNum, std::string seriesType,
+                std::string jeldType, std::string awards, std::string language ,int id);
+
     std::string getseriesType();
     std::string getjeldType();
     std::string getawards();

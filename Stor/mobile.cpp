@@ -9,8 +9,8 @@ Mobile::Mobile()
 
 }
 
-void Mobile::setData(string name, int price, int remainingNum, int boughtNum, int memoryGB, string screenTech, string networks, int rezoloutionMPx,
-                    string operatingSystem, int user_id)
+void Mobile::setData(int user_id,string name, int price, int remainingNum, int boughtNum, int memoryGB, string screenTech, string networks, int rezoloutionMPx,
+                    string operatingSystem)
 {
     this->name = name;
     this->price = price;
@@ -24,6 +24,21 @@ void Mobile::setData(string name, int price, int remainingNum, int boughtNum, in
     this->user_id = user_id;
     this->id = idCounter;
     idCounter++;
+}
+
+void Mobile::setSpecialData(int user_id, std::string name, int price, int remainingNum, int boughtNum, int memoryGB, std::string screenTech, std::string networks, int rezoloutionMPx, std::string operatingSystem, int id)
+{
+    this->name = name;
+    this->price = price;
+    this->remainingNum = remainingNum;
+    this->boughtNum = boughtNum;
+    this->memoryGB = memoryGB;
+    this->screenTech = screenTech;
+    this->networks = networks;
+    this->rezoloutionMPx = rezoloutionMPx;
+    this->operatingSystem = operatingSystem;
+    this->user_id = user_id;
+    this->id = id;
 }
 
 int Mobile::getmemoryGB() {

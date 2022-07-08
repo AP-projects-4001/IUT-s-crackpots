@@ -25,10 +25,13 @@ private slots:
 
     void updateVector();
 
+    void setId(int i);
+
 private:
     Ui::addBook *ui;
     std::vector<Book> books;
     static int flag;
+    int id;
 };
 
 #endif // ADDBOOK_H

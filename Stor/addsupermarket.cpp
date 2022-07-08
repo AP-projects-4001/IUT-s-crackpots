@@ -16,6 +16,7 @@ addSupermarket::addSupermarket(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addSupermarket::~addSupermarket()
@@ -32,24 +33,26 @@ void addSupermarket::on_buttonBox_accepted()
         try {
             Supermarket newSuper;
             newSuper.setData(
+                        id,
                         ui->good_lineEdit->text().toStdString(),
                         ui->price_lineEdit->text().toInt(),
                         ui->number_spinBox->value(),
                         0,
                         ui->use_lineEdit->text().toStdString(),
-                        ui->about_textEdit->toPlainText().toStdString(),
-                        0
+                        ui->about_textEdit->toPlainText().toStdString()
+
             );
 
             ofstream outDatabase("supermarket.txt", ios_base::app);
-            outDatabase << newSuper.getId() << '\n';
+
+            outDatabase << newSuper.getUsId() << '\n';
             outDatabase << newSuper.getName() << '\n';
             outDatabase << newSuper.getPrice()<< '\n';
             outDatabase << newSuper.getRemainingNum() << '\n';
             outDatabase << newSuper.getBoughtNum() << '\n';
             outDatabase << newSuper.getuse() << '\n';
             outDatabase << newSuper.getabout() << '\n';
-            outDatabase << newSuper.getUsId() << '\n';
+            outDatabase << newSuper.getId() << '\n';
             outDatabase << "#####\n";
 
             QMessageBox::information(this, "addgood", "Good added successfully.");
@@ -83,7 +86,7 @@ void addSupermarket::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            super.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],stoi(tmp[6]));
+            super.setData(stoi(tmp[0]),(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6]);
 
             supers.push_back(super);
             counter=0;
@@ -93,5 +96,10 @@ void addSupermarket::updateVector() {
             counter++;
 
     }
+}
+
+void addSupermarket::setId(int i)
+{
+    id=i;
 }
 

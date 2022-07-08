@@ -23,10 +23,13 @@ private slots:
 
     void updateVector();
 
+    void setId(int i);
+
 private:
     Ui::addFurniture *ui;
     std::vector<Furniture> furnitures;
     static int flag;
+    int id;
 };
 
 #endif // ADDFURNITURE_H

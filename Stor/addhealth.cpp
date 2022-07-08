@@ -16,6 +16,7 @@ addHealth::addHealth(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addHealth::~addHealth()
@@ -38,7 +39,7 @@ void addHealth::on_buttonBox_accepted()
                         ui->use_lineEdit->text().toStdString(),
                         ui->deprecation_lineEdit->text().toStdString(),
                         ui->about_textEdit->toPlainText().toStdString(),
-                        0
+                        id
             );
 
             ofstream outDatabase("healthproducts.txt", ios_base::app);
@@ -97,4 +98,9 @@ void addHealth::updateVector() {
 
 
     }
+}
+
+void addHealth::setId(int i)
+{
+    id=i;
 }

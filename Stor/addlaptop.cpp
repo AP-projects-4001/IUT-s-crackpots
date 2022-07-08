@@ -16,6 +16,7 @@ addLaptop::addLaptop(QWidget *parent) :
         updateVector();
         flag--;
     }
+    connect(parent,SIGNAL(sendId(int)),this,SLOT(setId(int)));
 }
 
 addLaptop::~addLaptop()
@@ -43,7 +44,7 @@ void addLaptop::on_buttonBox_accepted()
                         ui->graphic_lineEdit->text().toStdString(),
                         ui->screen_lineEdit->text().toInt(),
                         ui->about_textEdit->toPlainText().toStdString(),
-                        0
+                        id
             );
 
             ofstream outDatabase("laptops.txt", ios_base::app);
@@ -105,5 +106,10 @@ void addLaptop::updateVector() {
 
 
     }
+}
+
+void addLaptop::setId(int i)
+{
+    id=i;
 }
 

@@ -8,7 +8,7 @@ clientPage::clientPage(QWidget *parent) :
     ui(new Ui::clientPage)
 {
     ui->setupUi(this);
-    shop_view=new shopView(this);
+
     profile=new profileSetting(this);
     setNamePage=new setStorName(this);
     connect(parent ,SIGNAL(sendUserInformation(QString,QString ,QString ,int)),this,SLOT(setInformation(QString,QString,QString ,int)));
@@ -27,8 +27,9 @@ clientPage::~clientPage()
 }
 
 void clientPage::on_storBtn_clicked()
-{
+{   shop_view=new shopView(this);
     shop_view->show();
+    emit sendId(ui->idLabel->text().toInt());
 }
 
 void clientPage::setInformation(QString us, QString m ,QString g, int i)
