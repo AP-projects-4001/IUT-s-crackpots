@@ -20,6 +20,7 @@ public:
 signals:
     void sendUserInformation(QString us,QString ps,QString fn,QString ln,QString g,QString c,QString e,QString a,int id);
     void sendId(int i);
+    void sendUser(QString us);
 
 
 private slots:

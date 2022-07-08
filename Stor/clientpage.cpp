@@ -52,6 +52,23 @@ void clientPage::setInformation(QString us, QString m ,QString g, int i)
         ui->profileBtn->setIconSize(profPic.size());
     }
 
+    ifstream inDataBase("storname.txt",ios_base::in);
+    string tmp[3];
+    int counter=0;
+    while(getline(inDataBase,tmp[counter]))
+    {
+        if(tmp[counter]=="#####")
+        {
+            if(tmp[0]==username)
+            {
+                ui->shopNameLabel->setText(QString::fromStdString(tmp[1]));
+                break;
+            }
+        }
+        else
+            counter++;
+    }
+
 }
 
 
@@ -102,6 +119,7 @@ void clientPage::on_profileBtn_clicked()
 void clientPage::on_nameAction_triggered()
 {
     setNamePage->show();
+    emit sendUser(QString::fromStdString(username));
     connect(setNamePage,SIGNAL(sendName(QString)),this,SLOT(setName(QString)));
 }
 

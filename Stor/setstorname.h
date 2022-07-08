@@ -19,9 +19,11 @@ public:
 
 private slots:
     void on_saveBtn_clicked();
+    void setUSername(QString us);
 
 private:
     Ui::setStorName *ui;
+    QString username;
 };
 
 #endif // SETSTORNAME_H
