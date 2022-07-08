@@ -76,8 +76,8 @@ void addToy::on_buttonBox_accepted()
 
 void addToy::updateVector() {
     Toy toy;
-    string tmp[10];
-    int counter{0};
+    string tmp[9];
+    int counter = 0;
     ifstream inDataBase("toys.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
@@ -85,7 +85,7 @@ void addToy::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            toy.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],stoi(tmp[7]));
+            toy.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
 
             toys.push_back(toy);
             counter=0;

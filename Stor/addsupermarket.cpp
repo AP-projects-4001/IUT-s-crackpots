@@ -74,8 +74,8 @@ void addSupermarket::on_buttonBox_accepted()
 
 void addSupermarket::updateVector() {
     Supermarket super;
-    string tmp[10];
-    int counter{0};
+    string tmp[8];
+    int counter = 0;
     ifstream inDataBase("supermarket.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
@@ -83,7 +83,7 @@ void addSupermarket::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            super.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],stoi(tmp[6]));
+            super.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],stoi(tmp[7]));
 
             supers.push_back(super);
             counter=0;

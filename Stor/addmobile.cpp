@@ -84,7 +84,7 @@ void addMobile::on_buttonBox_accepted()
 void addMobile::updateVector() {
     Mobile mobile;
     string tmp[10];
-    int counter{0};
+    int counter = 0;
     ifstream inDataBase("mobiles.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {

@@ -1,4 +1,4 @@
-#include "addcar.h"
+﻿#include "addcar.h"
 #include "ui_addcar.h"
 #include "car.h"
 #include "QMessageBox"
@@ -6,6 +6,8 @@
 #include <vector>
 
 using namespace::std;
+
+#include <iostream>
 
 int Car::idCounter = 1;
 int addCar::flag = 1;
@@ -50,7 +52,7 @@ void addCar::on_buttonBox_accepted()
             outDatabase << newCar.getfeulType() << '\n';
             outDatabase << newCar.getcarClass() << '\n';
             outDatabase << newCar.getUsId() << '\n';
-            outDatabase << "######\n" ;
+            outDatabase << "#####\n" ;
 
             QMessageBox::information(this, "addcar", "Car added successfully.");
 
@@ -75,8 +77,8 @@ void addCar::on_buttonBox_accepted()
 
 void addCar::updateVector() {
     Car car;
-    string tmp[10];
-    int counter{0};
+    string tmp[9];
+    int counter = 0;
     ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/cars.txt", ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
@@ -84,10 +86,11 @@ void addCar::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            car.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],stoi(tmp[7]));
+            car.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
 
             cars.push_back(car);
             counter=0;
+            cout << counter << endl;
         }
 
         else

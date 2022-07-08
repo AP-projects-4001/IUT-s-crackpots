@@ -37,7 +37,7 @@ void addFurniture::on_buttonBox_accepted()
             newFurniture.setData(ui->furniture_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(), ui->number_spinBox->value()
                                  , 0, ui->garantee_lineEdit->text().toStdString(), ui->use_lineEdit->text().toStdString(), ui->about_textEdit->toPlainText().toStdString(), 0);
 
-            ofstream outDatabase("furnitures.txt", ios_base::app);
+            ofstream outDatabase("/Users/parsakhodadadi/Desktop/data/furnitures.txt", ios_base::app);
             outDatabase << newFurniture.getId() << '\n';
             outDatabase << newFurniture.getName() << '\n';
             outDatabase << newFurniture.getPrice() << '\n';
@@ -72,8 +72,8 @@ void addFurniture::on_buttonBox_accepted()
 
 void addFurniture::updateVector() {
     Furniture furniture;
-    string tmp[10];
-    int counter{0};
+    string tmp[9];
+    int counter = 0;
     ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/furnitures.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
@@ -81,7 +81,7 @@ void addFurniture::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            furniture.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],stoi(tmp[7]));
+            furniture.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
 
             furnitures.push_back(furniture);
             counter=0;

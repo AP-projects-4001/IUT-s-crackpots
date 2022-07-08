@@ -88,14 +88,14 @@ void addLaptop::on_buttonBox_accepted()
 void addLaptop::updateVector() {
     Laptop laptop;
     string tmp[12];
-    int counter{0};
+    int counter = 0;
     ifstream inDataBase("laptops.txt", ios::in);
     while(getline(inDataBase, tmp[counter]))
     {
 
         if(tmp[counter]=="#####") {
-            laptop.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4], stoi(tmp[5]),tmp[6],tmp[7], stoi(tmp[8]),
-                                tmp[9], stoi(tmp[10]));
+            laptop.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5], stoi(tmp[6]),tmp[7],tmp[8], stoi(tmp[9]),
+                                tmp[10], stoi(tmp[11]));
             laptops.push_back(laptop);
             counter=0;
         } else {

@@ -42,7 +42,7 @@ void addBook::on_buttonBox_accepted()
                             ui->series_comboBox->currentText().toStdString(), ui->jeld_comboBox->currentText().toStdString(), ui->awards_textEdit->toPlainText().toStdString()
                                , ui->lang_lineEdit->text().toStdString(), 0);
 
-            ofstream outDatabase("books.txt", ios_base::app);
+            ofstream outDatabase("/Users/parsakhodadadi/Desktop/data/books.txt", ios_base::app);
             outDatabase << newBook.getId() << '\n';
             outDatabase << newBook.getName() << '\n';
             outDatabase << newBook.getPrice() << '\n';
@@ -80,15 +80,14 @@ void addBook::on_buttonBox_accepted()
 void addBook::updateVector() {
     Book book;
     string tmp[10];
-    int counter{0};
-    ifstream inDataBase("books.txt", ios_base::in);
+    int counter = 0;
+    ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/books.txt", ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
-
         if(tmp[counter]=="#####")
         {
 
-            book.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
+            book.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],tmp[8],stoi(tmp[9]));
 
             books.push_back(book);
             counter=0;

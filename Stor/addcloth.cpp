@@ -36,7 +36,7 @@ void addCloth::on_buttonBox_accepted()
             newCloth.setData(ui->cloth_lineEdit->text().toStdString(), ui->price_lineEdit->text().toInt(),
                              ui->number_spinBox->value(), 0, ui->collar_comboBox->currentText().toStdString(), ui->sleeves_comboBox->currentText().toStdString(),
                              ui->uses_textEdit->toPlainText().toStdString(), ui->tarh_lineEdit->text().toStdString(), 0);
-            ofstream outDatabase("clothes.txt", ios_base::app);
+            ofstream outDatabase("/Users/parsakhodadadi/Desktop/data/clothes.txt", ios_base::app);
             outDatabase << newCloth.getId() << '\n';
             outDatabase << newCloth.getName() << '\n';
             outDatabase << newCloth.getPrice() << '\n';
@@ -74,15 +74,15 @@ void addCloth::on_buttonBox_accepted()
 void addCloth::updateVector() {
     Cloth cloth;
     string tmp[10];
-    int counter{0};
-    ifstream inDataBase("clothes.txt",ios_base::in);
+    int counter = 0;
+    ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/clothes.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
 
         if(tmp[counter]=="#####")
         {
 
-            cloth.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
+            cloth.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],tmp[8],stoi(tmp[9]));
 
             clothes.push_back(cloth);
             counter=0;

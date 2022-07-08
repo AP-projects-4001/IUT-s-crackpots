@@ -41,7 +41,7 @@ void addHealth::on_buttonBox_accepted()
                         0
             );
 
-            ofstream outDatabase("healthproducts.txt", ios_base::app);
+            ofstream outDatabase("/Users/parsakhodadadi/Desktop/data/healthproducts.txt", ios_base::app);
             outDatabase << newProduct.getId() << '\n';
             outDatabase << newProduct.getName() << '\n';
             outDatabase << newProduct.getPrice() << '\n';
@@ -76,8 +76,8 @@ void addHealth::on_buttonBox_accepted()
 
 void addHealth::updateVector() {
     Health health;
-    string tmp[10];
-    int counter{0};
+    string tmp[9];
+    int counter = 0;
     ifstream inDataBase("/Users/parsakhodadadi/Desktop/data/healthproducts.txt",ios_base::in);
     while(getline(inDataBase,tmp[counter]))
     {
@@ -85,7 +85,7 @@ void addHealth::updateVector() {
         if(tmp[counter]=="#####")
         {
 
-            health.setData(tmp[0],stoi(tmp[1]),stoi(tmp[2]),stoi(tmp[3]),tmp[4],tmp[5],tmp[6],stoi(tmp[7]));
+            health.setData(tmp[1],stoi(tmp[2]),stoi(tmp[3]),stoi(tmp[4]),tmp[5],tmp[6],tmp[7],stoi(tmp[8]));
 
             healthProducts.push_back(health);
             counter=0;
