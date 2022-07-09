@@ -31,6 +31,8 @@ private slots:
 
     void on_buyBtn_clicked();
 
+    void on_findBtn_clicked();
+
 public:
     explicit showGoodsToCustomer(QWidget *parent = nullptr);
     ~showGoodsToCustomer();

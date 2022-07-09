@@ -1,5 +1,6 @@
 #include "showgoodstocustomer.h"
 #include "ui_showgoodstocustomer.h"
+#include "QMessageBox"
 
 
 showGoodsToCustomer::showGoodsToCustomer(QWidget *parent) :
@@ -189,6 +190,7 @@ void showGoodsToCustomer::on_refreshBtn_clicked()
     cars.clear();
     supers.clear();
     mobiles.clear();
+    stuff.clear();
     loadGoods();
 }
 
@@ -444,6 +446,75 @@ void showGoodsToCustomer::on_buyBtn_clicked()
             }
 
         }
+    }
+}
+
+
+void showGoodsToCustomer::on_findBtn_clicked()
+{
+    if(ui->findLineEdit->text()=="" && ui->bookRadioButton->isChecked()==false && ui->carRadioButton->isChecked()==false && ui->mobileRadioButton->isChecked()==false && ui->supermarketRadioButton->isChecked()==false)
+    {
+        QMessageBox::warning(this,"blank","please check or fill the blank");
+    }
+    else
+    {
+        ui->shopListWidget->clear();
+        if(ui->findLineEdit->text()=="")
+        {
+            if(ui->bookRadioButton->isChecked())
+            {
+                for(unsigned int i=0;i<stuff.size();++i)
+                {
+
+                    if(stuff[i].getCat()=="book")
+                    {
+                        QListWidgetItem * item=new QListWidgetItem(ui->shopListWidget);
+                        item->setText(QString::fromStdString(stuff[i].getName()));
+                        ui->shopListWidget->addItem(item);
+                    }
+                }
+            }
+            if(ui->carRadioButton->isChecked())
+            {
+                for(unsigned int i=0;i<stuff.size();++i)
+                {
+
+                    if(stuff[i].getCat()=="car")
+                    {
+                        QListWidgetItem * item=new QListWidgetItem(ui->shopListWidget);
+                        item->setText(QString::fromStdString(stuff[i].getName()));
+                        ui->shopListWidget->addItem(item);
+                    }
+                }
+            }
+            else if(ui->mobileRadioButton->isChecked())
+            {
+                for(unsigned int i=0;i<stuff.size();++i)
+                {
+
+                    if(stuff[i].getCat()=="mobile")
+                    {
+                        QListWidgetItem * item=new QListWidgetItem(ui->shopListWidget);
+                        item->setText(QString::fromStdString(stuff[i].getName()));
+                        ui->shopListWidget->addItem(item);
+                    }
+                }
+            }
+            else if(ui->supermarketRadioButton->isChecked())
+            {
+                for(unsigned int i=0;i<stuff.size();++i)
+                {
+
+                    if(stuff[i].getCat()=="super")
+                    {
+                        QListWidgetItem * item=new QListWidgetItem(ui->shopListWidget);
+                        item->setText(QString::fromStdString(stuff[i].getName()));
+                        ui->shopListWidget->addItem(item);
+                    }
+                }
+            }
+        }
+
     }
 }
 
