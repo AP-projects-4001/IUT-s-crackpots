@@ -288,3 +288,162 @@ void showGoodsToCustomer::on_BuyInfoBtn_clicked()
 
 }
 
+
+void showGoodsToCustomer::on_buyBtn_clicked()
+{
+    int index=ui->shopListWidget->row(ui->shopListWidget->currentItem());
+    if(stuff[index].getCat()=="book")
+    {
+        for(unsigned int j=0;j<books.size();++j)
+        {
+            if(books[j].getId()==stuff[index].getId())
+            {
+                if(books[j].getRemainingNum()==0)
+                {
+
+                    break;
+                }
+                else
+                {
+                    books[j].setremaining(books[j].getRemainingNum()-1);
+                    books[j].setBought(books[j].getBoughtNum()+1);
+                    ofstream outDataBase("book.txt",ios_base::out);
+                    outDataBase.close();
+                    for(unsigned int i=0;i<books.size();++i)
+                    {
+                        ofstream outDataBase("book.txt",ios_base::app);
+                        outDataBase << books[i].getUsId() << '\n';
+                        outDataBase << books[i].getName() << '\n';
+                        outDataBase << books[i].getPrice() << '\n';
+                        outDataBase << books[i].getRemainingNum() << '\n';
+                        outDataBase << books[i].getBoughtNum() << '\n';
+                        outDataBase << books[i].getseriesType() << '\n';
+                        outDataBase << books[i].getjeldType() << '\n';
+                        outDataBase << books[i].getawards() << '\n';
+                        outDataBase << books[i].getlanguage() << '\n';
+                        outDataBase << books[i].getId() << '\n';
+                        outDataBase << "#####\n";
+
+                    }
+                    break;
+                }
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="car")
+    {
+        for(unsigned int j=0;j<cars.size();++j)
+        {
+            if(cars[j].getId()==stuff[index].getId())
+            {
+                if(cars[j].getRemainingNum()==0)
+                {
+
+                    break;
+                }
+                else
+                {
+                    cars[j].setremaining(cars[j].getRemainingNum()-1);
+                    cars[j].setBought(cars[j].getBoughtNum()+1);
+                    ofstream outDatabase("car.txt", ios_base::out);
+                    outDatabase.close();
+                    for(unsigned int i=0;i<cars.size();++i)
+                    {
+                        ofstream outDatabase("car.txt", ios_base::app);
+                        outDatabase << cars[i].getUsId() << '\n';
+                        outDatabase << cars[i].getName() << '\n';
+                        outDatabase << cars[i].getPrice() << '\n';
+                        outDatabase << cars[i].getRemainingNum() << '\n';
+                        outDatabase << cars[i].getBoughtNum() << '\n';
+                        outDatabase << cars[i].getsteeringWheelType() << '\n';
+                        outDatabase << cars[i].getfeulType() << '\n';
+                        outDatabase << cars[i].getcarClass() << '\n';
+                        outDatabase << cars[i].getId() << '\n';
+                        outDatabase << "#####\n";
+                    }
+                    break;
+                }
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="mobile")
+    {
+        for(unsigned int j=0;j<mobiles.size();++j)
+        {
+            if(mobiles[j].getId()==stuff[index].getId())
+            {
+                if(mobiles[j].getRemainingNum()==0)
+                {
+
+                    break;
+                }
+                else
+                {
+                    mobiles[j].setremaining(mobiles[j].getRemainingNum()-1);
+                    mobiles[j].setBought(mobiles[j].getBoughtNum()+1);
+                    ofstream outDatabase("mobiles.txt", ios_base::out);
+                    outDatabase.close();
+                    for(unsigned int i=0;i<mobiles.size();++i)
+                    {
+                        ofstream outDatabase("mobiles.txt", ios_base::app);
+                        outDatabase << mobiles[i].getUsId() << '\n';
+                        outDatabase << mobiles[i].getName() << '\n';
+                        outDatabase << mobiles[i].getPrice() << '\n';
+                        outDatabase << mobiles[i].getRemainingNum() << '\n';
+                        outDatabase << mobiles[i].getBoughtNum() << '\n';
+                        outDatabase << mobiles[i].getmemoryGB() << '\n';
+                        outDatabase << mobiles[i].getscreenTech() << '\n';
+                        outDatabase << mobiles[i].getnetworks() << '\n';
+                        outDatabase << mobiles[i].getrezoloutionMPx() << '\n';
+                        outDatabase << mobiles[i].getoperatingSystem() << '\n';
+                        outDatabase << mobiles[i].getId() << '\n';
+                        outDatabase << "#####\n";
+
+                    }
+                    break;
+                }
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="super")
+    {
+        for(unsigned int j=0;j<supers.size();++j)
+        {
+            if(supers[j].getId()==stuff[index].getId())
+            {
+                if(supers[j].getRemainingNum()==0)
+                {
+
+                    break;
+                }
+                else
+                {
+                    supers[j].setremaining(supers[j].getRemainingNum()-1);
+                    supers[j].setBought(supers[j].getBoughtNum()+1);
+                    ofstream outDatabase("supermarket.txt", ios_base::out);
+                    outDatabase.close();
+                    for(unsigned int i=0;i<supers.size();++i)
+                    {
+                        ofstream outDatabase("supermarket.txt", ios_base::app);
+                        outDatabase << supers[i].getUsId() << '\n';
+                        outDatabase << supers[i].getName() << '\n';
+                        outDatabase << supers[i].getPrice()<< '\n';
+                        outDatabase << supers[i].getRemainingNum() << '\n';
+                        outDatabase << supers[i].getBoughtNum() << '\n';
+                        outDatabase << supers[i].getuse() << '\n';
+                        outDatabase << supers[i].getabout() << '\n';
+                        outDatabase << supers[i].getId() << '\n';
+                        outDatabase << "#####\n";
+
+                    }
+                    break;
+                }
+            }
+
+        }
+    }
+}
+

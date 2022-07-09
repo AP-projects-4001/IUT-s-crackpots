@@ -23,6 +23,8 @@ public:
     std::string getnetworks();
     int getrezoloutionMPx();
     std::string getoperatingSystem();
+    void setremaining(int r);
+    void setBought(int b);
 };
 
 #endif // MOBILE_H

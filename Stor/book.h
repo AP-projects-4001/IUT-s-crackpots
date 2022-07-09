@@ -24,6 +24,9 @@ public:
     std::string getawards();
     std::string getlanguage();
     std::string getabout();
+    void setremaining(int r);
+    void setBought(int b);
+
 
 };
 

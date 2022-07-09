@@ -60,3 +60,13 @@ int Mobile::getrezoloutionMPx() {
 string Mobile::getoperatingSystem() {
     return operatingSystem;
 }
+
+void Mobile::setremaining(int r)
+{
+    remainingNum=r;
+}
+
+void Mobile::setBought(int b)
+{
+    boughtNum=b;
+}

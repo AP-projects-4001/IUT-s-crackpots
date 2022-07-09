@@ -20,6 +20,8 @@ public:
     std::string getsteeringWheelType();
     std::string getfeulType();
     std::string getcarClass();
+    void setremaining(int r);
+    void setBought(int b);
 };
 
 #endif // CAR_H

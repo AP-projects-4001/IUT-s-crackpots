@@ -41,3 +41,13 @@ string Supermarket::getuse() {
 string Supermarket::getabout() {
     return about;
 }
+
+void Supermarket::setremaining(int r)
+{
+    remainingNum=r;
+}
+
+void Supermarket::setBought(int b)
+{
+    boughtNum=b;
+}

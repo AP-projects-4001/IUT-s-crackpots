@@ -17,6 +17,8 @@ public:
     std::string about,int id );
     std::string getuse();
     std::string getabout();
+    void setremaining(int r);
+    void setBought(int b);
 };
 
 #endif // SUPERMARKET_H

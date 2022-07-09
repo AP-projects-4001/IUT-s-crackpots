@@ -55,5 +55,15 @@ string Book::getlanguage() {
     return language;
 }
 
+void Book::setremaining(int r)
+{
+    remainingNum=r;
+}
+
+void Book::setBought(int b)
+{
+    boughtNum=b;
+}
+
 
 

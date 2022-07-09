@@ -47,3 +47,13 @@ std::string Car::getfeulType() {
 std::string Car::getcarClass() {
     return carClass;
 }
+
+void Car::setremaining(int r)
+{
+    remainingNum=r;
+}
+
+void Car::setBought(int b)
+{
+    boughtNum=b;
+}
