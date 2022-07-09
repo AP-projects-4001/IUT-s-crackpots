@@ -74,7 +74,7 @@ void showGoodsToCustomer::loadGoods()
         {
             goodsAndID tmp;
             tmp.setName(mobiles[i].getName());
-            tmp.setCat("super");
+            tmp.setCat("mobile");
             tmp.setId(mobiles[i].getId());
             stuff.push_back(tmp);
             QListWidgetItem * moobile=new QListWidgetItem(ui->shopListWidget);
@@ -230,6 +230,52 @@ void showGoodsToCustomer::on_BuyInfoBtn_clicked()
                 tmp+="remaining: "+to_string(supers[i].getRemainingNum())+'\n';
                 tmp+="selled: "+to_string(supers[i].getBoughtNum())+'\n';
                 tmp+="use:: "+supers[i].getuse()+'\n';
+
+
+                ui->infoTtextEdit->setText(QString::fromStdString(tmp));
+                break;
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="car")
+    {
+        for(unsigned int i=0;i<cars.size();++i)
+        {
+            if(cars[i].getId()==stuff[index].getId())
+            {
+                string tmp="";
+                tmp+="Name: "+cars[i].getName()+'\n';
+                tmp+="price: "+to_string(cars[i].getPrice())+'\n';
+                tmp+="remaining: "+to_string(cars[i].getRemainingNum())+'\n';
+                tmp+="selled: "+to_string(cars[i].getBoughtNum())+'\n';
+                tmp+="Wheel type:: "+cars[i].getsteeringWheelType()+'\n';
+                tmp+="car class:: "+cars[i].getcarClass()+'\n';
+                tmp+="flue type:: "+cars[i].getfeulType()+'\n';
+
+
+                ui->infoTtextEdit->setText(QString::fromStdString(tmp));
+                break;
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="mobile")
+    {
+        for(unsigned int i=0;i<mobiles.size();++i)
+        {
+            if(mobiles[i].getId()==stuff[index].getId())
+            {
+                string tmp="";
+                tmp+="Name: "+mobiles[i].getName()+'\n';
+                tmp+="price: "+to_string(mobiles[i].getPrice())+'\n';
+                tmp+="remaining: "+to_string(mobiles[i].getRemainingNum())+'\n';
+                tmp+="selled: "+to_string(mobiles[i].getBoughtNum())+'\n';
+                tmp+="memory: "+to_string(mobiles[i].getmemoryGB())+'\n';
+                tmp+="screen touch: "+(mobiles[i].getscreenTech())+'\n';
+                tmp+="selled: "+to_string(mobiles[i].getBoughtNum())+'\n';
+                tmp+="resoulution: "+to_string(mobiles[i].getrezoloutionMPx())+'\n';
+                tmp+="oprating system: "+(mobiles[i].getoperatingSystem())+'\n';
 
 
                 ui->infoTtextEdit->setText(QString::fromStdString(tmp));
