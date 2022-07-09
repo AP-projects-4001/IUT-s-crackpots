@@ -2,6 +2,7 @@
 #include "ui_costumerpage.h"
 #include "fstream"
 #include "string"
+#include "customershop.h"
 #include "QPixmap"
 
 
@@ -145,4 +146,13 @@ void costumerPage::on_logoutBtn_clicked()
 {
     close();
 }
+
+
+void costumerPage::on_storeBtn_clicked()
+{
+    customerShop * shop=new customerShop(this);
+    shop->show();
+}
+
+
 

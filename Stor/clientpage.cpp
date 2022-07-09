@@ -128,7 +128,7 @@ void clientPage::setName(QString n)
 {
 
     ui->shopNameLabel->setText(n);
-    ofstream outClientDataBase("client.txt",ios_base::app);
+
 
 
 }

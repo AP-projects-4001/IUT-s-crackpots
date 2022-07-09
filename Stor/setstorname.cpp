@@ -29,6 +29,7 @@ void setStorName::on_saveBtn_clicked()
     if(!inDataBase)
     {
         ofstream DataBase("storname.txt",ios_base::out);
+        DataBase.close();
     }
 
     while(getline(inDataBase,tmp[counter]))
@@ -48,7 +49,8 @@ void setStorName::on_saveBtn_clicked()
     outDataBase<<info;
 
     emit sendName(ui->storNameLineEdit->text());
-
+    inDataBase.close();
+    outDataBase.close();
 }
 
 void setStorName::setUSername(QString us)

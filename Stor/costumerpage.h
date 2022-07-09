@@ -27,6 +27,7 @@ private slots:
     void on_addMoney_clicked();
 
 
+    void on_storeBtn_clicked();
 
     void on_logoutBtn_clicked();
 

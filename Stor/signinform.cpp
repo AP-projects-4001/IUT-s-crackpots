@@ -40,11 +40,11 @@ void SignInForm::on_loginBtn_clicked()
 
     string usernameString=ui->usernameLineEdit->text().toStdString();
     string usernameStr="";
-    for (int i = 0; i < usernameString.length(); i++){
+    for (unsigned int i = 0; i < usernameString.length(); i++){
         usernameStr += tolower(usernameString[i]);
     }
 
-    for(int i=0;i<up.size();++i)
+    for(unsigned int i=0;i<up.size();++i)
     {
         if(usernameStr==up[i].getUsername())
         {
@@ -55,8 +55,9 @@ void SignInForm::on_loginBtn_clicked()
                     if(up[i].getRole()=="Costumer")
                     {
                         empty=false;
-                        coPage->show();
                         emit sendUserInformation(QString::fromStdString(up[i].getUsername()),QString::fromStdString(up[i].getMoney()),QString::fromStdString(up[i].getGender()),up[i].getId());
+
+                        coPage->show();
 
                     }
 
