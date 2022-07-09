@@ -81,13 +81,13 @@ void shopView::loadGoods()
             suuper->setText(QString::fromStdString(supers[i].getName()));
         }
     }
-    for(unsigned int i =0;i<supers.size();++i)
+    for(unsigned int i =0;i<mobiles.size();++i)
     {
         if(mobiles[i].getUsId()==id)
         {
             goodsAndID tmp;
             tmp.setName(mobiles[i].getName());
-            tmp.setCat("super");
+            tmp.setCat("mobile");
             tmp.setId(mobiles[i].getId());
             stuff.push_back(tmp);
             QListWidgetItem * moobile=new QListWidgetItem(ui->goodsListWidget);
@@ -201,6 +201,7 @@ void shopView::on_refresh_clicked()
     books.clear();
     cars.clear();
     supers.clear();
+    mobiles.clear();
     loadGoods();
 }
 

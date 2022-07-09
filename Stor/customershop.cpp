@@ -4,6 +4,7 @@
 #include "fstream"
 #include "QDebug"
 #include "QListWidgetItem"
+#include"showgoodstocustomer.h"
 using namespace std;
 customerShop::customerShop(QWidget *parent) :
     QMainWindow(parent),
@@ -79,3 +80,19 @@ void customerShop::setShops()
     }
     //qDebug()<<"setshop";
 }
+
+void customerShop::on_openBtn_clicked()
+{
+
+    for(unsigned int i=0;i<up.size();++i)
+    {
+        if(up[i].getUsername()==ui->shopListWidget->currentItem()->text().toStdString())
+        {
+
+            showGoodsToCustomer * goodsOfSelectedStor=new showGoodsToCustomer(this);
+            goodsOfSelectedStor->show();
+             emit sendId(up[i].getId());
+        }
+    }
+}
+

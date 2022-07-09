@@ -38,6 +38,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     profilesetting.cpp \
+    showgoodstocustomer.cpp \
     signinform.cpp \
     userprofile.cpp \
     admin_page.cpp \
@@ -80,6 +81,7 @@ HEADERS += \
     mainwindow.h \
     profilesetting.h \
     shopview.h \
+    showgoodstocustomer.h \
     signinform.h \
     signupform.h \
     userprofile.h \
@@ -109,6 +111,7 @@ FORMS += \
     mainwindow.ui \
     profilesetting.ui \
     shopview.ui \
+    showgoodstocustomer.ui \
     signinform.ui \
     signupform.ui \
     admin_page.ui \
