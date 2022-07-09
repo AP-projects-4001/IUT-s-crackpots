@@ -515,6 +515,22 @@ void showGoodsToCustomer::on_findBtn_clicked()
             }
         }
 
+        else
+        {
+            for(unsigned int i=0;i<stuff.size();++i)
+            {
+                if(ui->findLineEdit->text().toStdString()==stuff[i].getName())
+                {
+                    ui->shopListWidget->clear();
+                    QListWidgetItem * item=new QListWidgetItem(ui->shopListWidget);
+                    item->setText(QString::fromStdString(stuff[i].getName()));
+                    ui->shopListWidget->addItem(item);
+
+                }
+            }
+
+        }
+
     }
 }
 
