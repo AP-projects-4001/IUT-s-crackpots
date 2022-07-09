@@ -192,3 +192,53 @@ void showGoodsToCustomer::on_refreshBtn_clicked()
     loadGoods();
 }
 
+
+void showGoodsToCustomer::on_BuyInfoBtn_clicked()
+{
+    int index=ui->shopListWidget->row(ui->shopListWidget->currentItem());
+    if(stuff[index].getCat()=="book")
+    {
+        for(unsigned int i=0;i<books.size();++i)
+        {
+            if(books[i].getId()==stuff[index].getId())
+            {
+                string tmp="";
+                tmp+="Name: "+books[i].getName()+'\n';
+                tmp+="price: "+to_string(books[i].getPrice())+'\n';
+                tmp+="remaining: "+to_string(books[i].getRemainingNum())+'\n';
+                tmp+="selled: "+to_string(books[i].getBoughtNum())+'\n';
+                tmp+="series type:: "+books[i].getseriesType()+'\n';
+                tmp+="jeld: "+books[i].getjeldType()+'\n';
+                tmp+="award: "+books[i].getawards()+'\n';
+                tmp+="Language: "+books[i].getlanguage()+'\n';
+
+                ui->infoTtextEdit->setText(QString::fromStdString(tmp));
+                break;
+            }
+
+        }
+    }
+    else if(stuff[index].getCat()=="super")
+    {
+        for(unsigned int i=0;i<supers.size();++i)
+        {
+            if(supers[i].getId()==stuff[index].getId())
+            {
+                string tmp="";
+                tmp+="Name: "+supers[i].getName()+'\n';
+                tmp+="price: "+to_string(supers[i].getPrice())+'\n';
+                tmp+="remaining: "+to_string(supers[i].getRemainingNum())+'\n';
+                tmp+="selled: "+to_string(supers[i].getBoughtNum())+'\n';
+                tmp+="use:: "+supers[i].getuse()+'\n';
+
+
+                ui->infoTtextEdit->setText(QString::fromStdString(tmp));
+                break;
+            }
+
+        }
+    }
+
+
+}
+

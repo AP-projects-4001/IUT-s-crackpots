@@ -27,6 +27,8 @@ private slots:
     void loadGoods();
     void on_refreshBtn_clicked();
 
+    void on_BuyInfoBtn_clicked();
+
 public:
     explicit showGoodsToCustomer(QWidget *parent = nullptr);
     ~showGoodsToCustomer();
